@@ -2,6 +2,12 @@
 
 Modern full-stack website for Abathar Kmash, a professional oud player, music pedagogue, and composer based in Munich, Germany. This project recreates https://abathar-kmash.de/ with modern technologies and prepares for future AI integrations.
 
+## Live Demo
+
+**Frontend**: https://abathar-website-mj1bdvkyn-bahtas-projects.vercel.app/ (configuring...)
+**Backend API**: https://abathar-api.onrender.com
+**API Docs**: https://abathar-api.onrender.com/docs
+
 ## Overview
 
 **Backend**: FastAPI + PostgreSQL
@@ -276,10 +282,13 @@ ALLOWED_ORIGINS=https://your-frontend-url.com
 
 **Recommended**: Vercel (optimized for Next.js)
 
-**Environment Variables**:
-```env
-NEXT_PUBLIC_API_URL=https://your-backend-url.com
-```
+**Setup Steps**:
+1. Connect GitHub repo to Vercel
+2. In Project Settings → General → Root Directory: Set to `frontend`
+3. Add environment variable: `NEXT_PUBLIC_API_URL=https://abathar-api.onrender.com`
+4. Deploy
+
+**Important**: Make sure to set the Root Directory to `frontend` in Vercel settings, otherwise you'll get 404 errors.
 
 **Alternative Platforms**:
 - Netlify
