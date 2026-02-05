@@ -17,6 +17,9 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
+// Force dynamic rendering for all pages
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Abathar Kmash | Oud Player, Music Pedagogue, Composer',
   description: 'Professional oud player, music pedagogue, and composer based in Munich, Germany. Specializing in transcultural music that bridges Eastern and Western traditions.',
