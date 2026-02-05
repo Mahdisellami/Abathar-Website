@@ -12,10 +12,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('modern');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const stored = getStoredTheme();
     setTheme(stored);
     applyTheme(stored);
@@ -27,11 +25,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setStoredTheme(newTheme);
     applyTheme(newTheme);
   };
-
-  // Prevent flash of unstyled content
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
