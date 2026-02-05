@@ -214,11 +214,11 @@ export default function ContactPage() {
               <p className="text-gray-700 dark:text-gray-300 mt-4">
                 <strong>Streitbeilegung:</strong><br />
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
-                <a href={contactInfo.legal.dispute_resolution} target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:underline">
-                  {contactInfo.legal.dispute_resolution}
+                <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:underline">
+                  https://ec.europa.eu/consumers/odr
                 </a>
                 <br />
-                {contactInfo.legal.note}
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
               </p>
             </div>
           </div>
