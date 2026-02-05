@@ -1,0 +1,89 @@
+# Development docker-compose with hot reload
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: abathar_db_dev
+    environment:
+      POSTGRES_USER: abathar_user
+      POSTGRES_PASSWORD: abathar_password
+      POSTGRES_DB: abathar_website
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U abathar_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - abathar_network
+
+  # pgAdmin
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: abathar_pgadmin_dev
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@abathar.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - abathar_network
+
+  # FastAPI Backend (Development mode with hot reload)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: abathar_backend_dev
+    environment:
+      DATABASE_URL: postgresql://abathar_user:abathar_password@postgres:5432/abathar_website
+      DEBUG: "True"
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      ALLOWED_ORIGINS: http://localhost:3000,http://frontend:3000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - abathar_network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+
+  # Next.js Frontend (Development mode with hot reload)
+  frontend:
+    image: node:18-alpine
+    container_name: abathar_frontend_dev
+    working_dir: /app
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - abathar_network
+    command: sh -c "npm install && npm run dev"
+    restart: unless-stopped
+
+volumes:
+  postgres_data_dev:
+
+networks:
+  abathar_network:
+    driver: bridge
