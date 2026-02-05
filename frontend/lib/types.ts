@@ -19,7 +19,7 @@ export interface Bio {
   education: Array<{
     degree: string;
     institution: string;
-    year: string;
+    period: string;
   }>;
   achievements: string[];
   current_roles: string[];
