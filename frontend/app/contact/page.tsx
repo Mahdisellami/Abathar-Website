@@ -107,10 +107,8 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-900 dark:text-white">Address</p>
-                    <p className="text-gray-700 dark:text-gray-300">
-                      {contactInfo.address.street}<br />
-                      {contactInfo.address.postal_code} {contactInfo.address.city}<br />
-                      {contactInfo.address.country}
+                    <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                      {contactInfo.address}
                     </p>
                   </div>
                 </div>
