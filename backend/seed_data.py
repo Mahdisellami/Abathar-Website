@@ -274,8 +274,8 @@ The ensemble has performed at significant venues including the European Champion
     print("Ensemble seeded successfully!")
 
 
-def main():
-    """Main seeding function"""
+def seed_database():
+    """Seed database function that can be called from anywhere"""
     print("=" * 50)
     print("Starting database seeding...")
     print("=" * 50)
@@ -297,6 +297,11 @@ def main():
         raise
     finally:
         db.close()
+
+
+def main():
+    """Main entry point when run as script"""
+    seed_database()
 
 
 if __name__ == "__main__":

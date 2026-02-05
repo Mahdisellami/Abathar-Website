@@ -2,6 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .config import settings
 from .database import create_tables
+import sys
+import os
+
+# Add parent directory to path to import seed_data
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from seed_data import seed_database
 
 # Import routers
 from .routers import bio, events, ensemble, contact
@@ -29,6 +35,13 @@ async def startup_event():
     """Initialize database on startup"""
     create_tables()
     print("Database tables created successfully")
+
+    # Seed database with initial data (safe to run multiple times)
+    try:
+        seed_database()
+    except Exception as e:
+        print(f"Warning: Database seeding encountered an error: {e}")
+        print("Continuing with startup...")
 
 
 @app.get("/")
