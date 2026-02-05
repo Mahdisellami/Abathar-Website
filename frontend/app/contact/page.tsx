@@ -194,11 +194,9 @@ export default function ContactPage() {
                 Oud Player | Music Pedagogue | Composer | Transcultural Musician
               </p>
 
-              <p className="text-gray-700 dark:text-gray-300 mt-4">
+              <p className="text-gray-700 dark:text-gray-300 mt-4 whitespace-pre-line">
                 <strong>Kontakt:</strong><br />
-                {contactInfo.address.street}<br />
-                {contactInfo.address.postal_code} {contactInfo.address.city}<br />
-                {contactInfo.address.country}<br />
+                {contactInfo.address}<br />
                 Telefon: {contactInfo.phone}<br />
                 E-Mail: {contactInfo.email}
               </p>
