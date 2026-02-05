@@ -9,8 +9,8 @@ class BioBase(BaseModel):
     title: str = Field(..., min_length=1, max_length=500)
     bio_text: str = Field(..., min_length=1)
     education: Optional[List[Dict[str, Any]]] = None
-    achievements: Optional[List[Dict[str, Any]]] = None
-    current_roles: Optional[List[Dict[str, Any]]] = None
+    achievements: Optional[List[str]] = None
+    current_roles: Optional[List[str]] = None
     discography: Optional[List[Dict[str, Any]]] = None
 
 
@@ -25,8 +25,8 @@ class BioUpdate(BaseModel):
     title: Optional[str] = Field(None, min_length=1, max_length=500)
     bio_text: Optional[str] = Field(None, min_length=1)
     education: Optional[List[Dict[str, Any]]] = None
-    achievements: Optional[List[Dict[str, Any]]] = None
-    current_roles: Optional[List[Dict[str, Any]]] = None
+    achievements: Optional[List[str]] = None
+    current_roles: Optional[List[str]] = None
     discography: Optional[List[Dict[str, Any]]] = None
 
 

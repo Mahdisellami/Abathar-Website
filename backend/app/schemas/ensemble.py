@@ -13,7 +13,7 @@ class EnsembleBase(BaseModel):
     contact_email: Optional[str] = None
     contact_phone: Optional[str] = Field(None, max_length=50)
     members: Optional[List[Dict[str, Any]]] = None
-    highlights: Optional[List[Dict[str, Any]]] = None
+    highlights: Optional[List[str]] = None
 
 
 class EnsembleCreate(EnsembleBase):
@@ -31,7 +31,7 @@ class EnsembleUpdate(BaseModel):
     contact_email: Optional[str] = None
     contact_phone: Optional[str] = Field(None, max_length=50)
     members: Optional[List[Dict[str, Any]]] = None
-    highlights: Optional[List[Dict[str, Any]]] = None
+    highlights: Optional[List[str]] = None
 
 
 class EnsembleSchema(EnsembleBase):

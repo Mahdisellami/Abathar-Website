@@ -8,7 +8,7 @@ class EventBase(BaseModel):
     title: str = Field(..., min_length=1, max_length=500)
     date: date
     time: Optional[str] = Field(None, max_length=50)
-    venue: str = Field(..., min_length=1, max_length=255)
+    venue: Optional[str] = Field(None, max_length=255)
     location: Optional[str] = Field(None, max_length=255)
     description: Optional[str] = None
     ensemble_name: Optional[str] = Field(None, max_length=255)
