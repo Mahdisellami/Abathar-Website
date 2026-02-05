@@ -70,9 +70,21 @@ He has performed at prestigious venues including Gasteig HP8, Konzerthaus Berlin
             "Former instructor at Freien Musikzentrum München (2018-2025)"
         ],
         discography=[
-            "World.Wide.Wig",
-            "Embryo collaborations",
-            "Various ensemble recordings"
+            {
+                "title": "World.Wide.Wig",
+                "year": "2023",
+                "role": "Oud, Composer"
+            },
+            {
+                "title": "Embryo Collaborations",
+                "year": "2022",
+                "role": "Oud, Cello"
+            },
+            {
+                "title": "Ogaro Ensemble Recordings",
+                "year": "2017-present",
+                "role": "Oud, Artistic Director"
+            }
         ]
     )
 
@@ -226,28 +238,27 @@ The ensemble has performed at significant venues including the European Champion
             {
                 "name": "Abathar Kmash",
                 "instrument": "Oud, Handpan",
-                "origin": "Syria",
-                "role": "Founder"
+                "bio": "Founder from Syria. Oud player and artistic director of the ensemble."
             },
             {
                 "name": "Eleanna Pitsikaki",
                 "instrument": "Qanun",
-                "origin": "Greece"
+                "bio": "Qanun player from Greece, bringing Mediterranean melodies to the ensemble."
             },
             {
                 "name": "Wilbert Pepper",
                 "instrument": "Contrabass, Electric Bass",
-                "origin": "Venezuela"
+                "bio": "Venezuelan bassist providing the rhythmic foundation."
             },
             {
                 "name": "Ludwig Himpsl",
                 "instrument": "Darbuka, Riq, Davul",
-                "origin": "Germany"
+                "bio": "German percussionist specializing in Middle Eastern rhythms."
             },
             {
                 "name": "Stefan Noelle",
                 "instrument": "Frame drums, Riq, Cajon",
-                "origin": "Germany"
+                "bio": "German percussionist adding diverse rhythmic textures."
             }
         ],
         highlights=[

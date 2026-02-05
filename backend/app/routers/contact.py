@@ -45,15 +45,6 @@ def get_contact_info():
         "name": "Abathar Kmash",
         "email": "abathar.k987@gmail.com",
         "phone": "+49 176 20360789",
-        "address": {
-            "street": "Haimhauser 15",
-            "postal_code": "80802",
-            "city": "München",
-            "country": "Germany"
-        },
-        "ensemble_email": "ogaro.ensemble@gmail.com",
-        "legal": {
-            "dispute_resolution": "https://ec.europa.eu/consumers/odr",
-            "note": "We do not participate in consumer arbitration proceedings."
-        }
+        "address": "Haimhauser 15\n80802 München\nGermany",
+        "ensemble_email": "ogaro.ensemble@gmail.com"
     }
