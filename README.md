@@ -105,6 +105,16 @@ Frontend will be available at: http://localhost:3000
 - Events page with upcoming/past filtering
 - Ogaro Ensemble page with member profiles
 - Contact page with Impressum
+- **Media page with video gallery and playlists** 🆕
+
+✅ **YouTube Integration** 🆕
+- **24 real performance videos** from Abathar's YouTube channel
+- **5 curated playlists** with direct links to YouTube
+- Featured videos section on homepage
+- Video modal player with autoplay
+- Category filtering (concert, performance, interview, rehearsal)
+- Playlist cards with gradient backgrounds
+- Direct YouTube channel subscription link
 
 ✅ **Dual Theme System**
 - **Modern Theme**: Clean, minimalist design with warm colors
@@ -117,14 +127,75 @@ Frontend will be available at: http://localhost:3000
 - Smooth animations and transitions
 
 ✅ **RESTful API**
-- Biography, Events, and Ensemble endpoints
+- Biography, Events, Ensemble, Videos, and Playlists endpoints
 - CRUD operations (admin features prepared)
 - Automatic API documentation
 
 ✅ **Database Management**
 - PostgreSQL with SQLAlchemy ORM
-- Seeded with content from original website
-- Structured data for bio, events, and ensembles
+- Automatic seeding on startup
+- Structured data for bio, events, ensembles, videos, and playlists
+- FORCE_RESEED environment variable for production database updates
+
+## YouTube Integration Details
+
+### Architecture
+
+The YouTube integration stores video and playlist metadata in the database rather than fetching from YouTube API in real-time. This approach provides:
+
+**Benefits:**
+- No YouTube API key required
+- No rate limits or API quotas
+- Full control over displayed content
+- Ability to categorize and feature specific videos
+- Link videos to specific events
+- Custom descriptions and ordering
+- Works even if YouTube API is down
+
+**Components:**
+
+1. **Backend Models** (`/backend/app/models/`):
+   - `video.py` - Video metadata (title, youtube_id, category, is_featured, etc.)
+   - `playlist.py` - Playlist metadata (title, playlist_id, video_count, etc.)
+
+2. **Backend Routers** (`/backend/app/routers/`):
+   - `videos.py` - API endpoints for videos (GET /api/videos, /api/videos/featured, etc.)
+   - `playlists.py` - API endpoints for playlists (GET /api/playlists, etc.)
+
+3. **Frontend Components** (`/frontend/components/`):
+   - `VideoCard.tsx` - Video thumbnail card with play button
+   - `VideoGrid.tsx` - Responsive grid layout for videos
+   - `VideoModal.tsx` - Modal player with YouTube embed
+   - `PlaylistCard.tsx` - Playlist card with gradient background
+
+4. **Frontend Pages**:
+   - `/media` - Main videos/playlists page with filtering
+   - `/` (homepage) - Featured videos section
+
+### Video Thumbnails
+
+YouTube provides multiple thumbnail sizes for videos:
+- `maxresdefault.jpg` (1920x1080) - Only available for high-quality uploads
+- `hqdefault.jpg` (480x360) - **Available for ALL videos** ✅ (we use this)
+- `mqdefault.jpg` (320x180) - Medium quality fallback
+- `default.jpg` (120x90) - Lowest quality
+
+**Important**: Playlists do NOT have direct thumbnail URLs from YouTube. We use gradient backgrounds instead.
+
+### Data Flow
+
+1. **Seeding**: `backend/seed_data.py` populates database with video/playlist metadata
+2. **API**: Backend serves video/playlist data via REST endpoints
+3. **Frontend**: Fetches data and displays with YouTube embeds
+4. **Playback**: Uses YouTube's embed player (no API needed)
+
+### Future Enhancements
+
+- YouTube Data API integration for automatic sync
+- View count and engagement metrics
+- Automatic thumbnail updates
+- Live stream integration
+- Comments section
 
 ### Future Features (Prepared)
 
@@ -151,6 +222,7 @@ Frontend will be available at: http://localhost:3000
 - Hero section with call-to-action
 - Introduction
 - Featured upcoming events (next 3)
+- Featured videos section (next 3)
 - Music lessons CTA
 
 ### 2. Biography (`/bio`)
@@ -172,7 +244,16 @@ Frontend will be available at: http://localhost:3000
 - Performance highlights
 - Booking information
 
-### 5. Contact (`/contact`)
+### 5. Media (`/media`)
+- Video gallery with 24 performance videos
+- Category filtering (concert, performance, interview, rehearsal)
+- Video modal player with YouTube embed
+- Featured videos section
+- 5 curated playlists with direct YouTube links
+- Playlist cards with gradient backgrounds
+- Subscribe to YouTube channel link
+
+### 6. Contact (`/contact`)
 - Contact details (email, phone, address)
 - Ogaro Ensemble contact
 - Impressum (legal information)
@@ -198,6 +279,17 @@ Frontend will be available at: http://localhost:3000
 - `GET /api/ensembles/{id}` - Get ensemble by ID
 - `POST /api/ensembles` - Create ensemble
 - `PUT /api/ensemble` - Update main ensemble
+
+### Videos
+- `GET /api/videos` - Get all videos (supports filtering by category, featured status, limit)
+- `GET /api/videos/{id}` - Get single video by ID
+- `GET /api/videos/featured` - Get featured videos
+- `GET /api/videos/by-event/{event_id}` - Get videos linked to specific event
+
+### Playlists
+- `GET /api/playlists` - Get all playlists
+- `GET /api/playlists/{id}` - Get single playlist by ID
+- `GET /api/playlists/featured` - Get featured playlists
 
 ### Contact
 - `GET /api/contact-info` - Get contact details
@@ -244,6 +336,24 @@ Frontend will be available at: http://localhost:3000
 - Members (JSON)
 - Highlights (JSON)
 
+### Videos Table
+- YouTube ID and URL
+- Title, description
+- Thumbnail URL, duration
+- Published date
+- Category (concert, performance, interview, rehearsal)
+- Event ID (foreign key to events table)
+- Display settings (is_featured, display_order, is_visible)
+- Timestamps (created_at, updated_at)
+
+### Playlists Table
+- YouTube playlist ID and URL
+- Title, description
+- Thumbnail URL
+- Video count
+- Display settings (is_featured, display_order, is_visible)
+- Timestamps (created_at, updated_at)
+
 ## Theme System
 
 Users can toggle between two themes:
@@ -276,7 +386,26 @@ Toggle button in header (sun/moon icon). Preference persists via localStorage.
 DATABASE_URL=postgresql://...
 DEBUG=False
 ALLOWED_ORIGINS=https://your-frontend-url.com
+FORCE_RESEED=false  # Set to 'true' to clear and reseed database on startup (use once, then remove)
 ```
+
+**Updating Production Database**:
+
+If you need to update the database with new seed data on Render:
+
+1. Go to your backend service on Render dashboard
+2. Navigate to **Environment** tab
+3. Add environment variable: `FORCE_RESEED=true`
+4. Click **Save Changes**
+5. Trigger **Manual Deploy** → **Deploy latest commit**
+6. Wait for deployment to complete (check logs for "✓ Cleared X videos and Y playlists")
+7. **IMPORTANT**: Remove the `FORCE_RESEED` variable after successful deployment
+8. Verify at: `https://abathar-api.onrender.com/api/videos`
+
+This is necessary when:
+- Updating placeholder IDs with real YouTube IDs
+- Changing video/playlist seed data
+- Database has stale data but code is up to date
 
 ### Frontend Deployment
 
@@ -303,6 +432,58 @@ ALLOWED_ORIGINS=https://your-frontend-url.com
 - DigitalOcean Managed Database
 
 ## Development Workflow
+
+### Adding New Videos
+
+Option 1: Using Seed Script (Recommended)
+1. Edit `backend/seed_data.py`
+2. Add video data to `videos_data` list:
+```python
+{
+    "title": "Performance Title",
+    "youtube_id": "VIDEO_ID_HERE",  # From youtube.com/watch?v=VIDEO_ID_HERE
+    "youtube_url": "https://www.youtube.com/watch?v=VIDEO_ID_HERE",
+    "description": "Performance description",
+    "category": "concert",  # concert, performance, interview, rehearsal
+    "is_featured": False,
+    "display_order": 10,
+}
+```
+3. Clear existing videos (if updating): Connect to database and run `DELETE FROM videos;`
+4. Run: `python seed_data.py`
+5. Restart backend
+
+Option 2: Using API (Future - when admin panel is ready)
+```bash
+curl -X POST http://localhost:8000/api/videos \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Performance Title",
+    "youtube_id": "VIDEO_ID",
+    "youtube_url": "https://www.youtube.com/watch?v=VIDEO_ID",
+    "category": "concert",
+    "is_featured": false
+  }'
+```
+
+### Adding New Playlists
+
+Edit `backend/seed_data.py` and add to `playlists_data` list:
+```python
+{
+    "title": "Playlist Name",
+    "playlist_id": "PLAYLIST_ID",  # From youtube.com/playlist?list=PLAYLIST_ID
+    "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID",
+    "description": "Playlist description",
+    "video_count": 10,
+    "is_featured": True,
+    "display_order": 1,
+}
+```
+
+**Note**: YouTube thumbnail URLs use different formats:
+- Videos: `https://img.youtube.com/vi/{VIDEO_ID}/hqdefault.jpg` (480x360, always available)
+- Playlists: No direct thumbnail URL (we use gradient backgrounds)
 
 ### Adding New Events
 
@@ -382,7 +563,15 @@ http://localhost:3000
 - Bio: /bio
 - Events: /events
 - Ensemble: /ensemble
+- Media: /media
 - Contact: /contact
+
+# Test video features:
+- Click on video cards to open modal player
+- Test YouTube embed playback
+- Test category filtering
+- Verify featured videos on homepage
+- Test playlist cards and YouTube links
 ```
 
 ### Full Integration
@@ -392,8 +581,10 @@ http://localhost:3000
 3. Start frontend: `cd frontend && npm run dev`
 4. Visit http://localhost:3000
 5. Test theme toggle
-6. Navigate through all pages
-7. Check API calls in DevTools Network tab
+6. Navigate through all pages (Home, Bio, Events, Ensemble, Media, Contact)
+7. Test video playback and playlists on Media page
+8. Check API calls in DevTools Network tab
+9. Verify no 404 errors in console (thumbnails should load correctly)
 
 ## Troubleshooting
 
@@ -418,6 +609,22 @@ docker-compose up -d
 ### Theme Not Working
 - Clear browser localStorage
 - Hard refresh (Cmd+Shift+R or Ctrl+Shift+F5)
+
+### Video Thumbnails Not Loading (404 Errors)
+- **Local Development**: Database may have placeholder IDs
+  - Run: `cd backend && python seed_data.py` to reseed with real YouTube IDs
+  - Restart backend
+- **Production (Render)**: Database needs reseeding
+  - Add environment variable: `FORCE_RESEED=true`
+  - Deploy once
+  - Remove the environment variable
+  - See "Updating Production Database" section above
+
+### Videos/Playlists Not Showing
+- Check backend API: `http://localhost:8000/api/videos`
+- Check backend API: `http://localhost:8000/api/playlists`
+- Verify database has been seeded: `docker exec -it postgres-db psql -U user -d abathar_db -c "SELECT COUNT(*) FROM videos;"`
+- Check browser console for API errors
 
 ## Contributing
 
