@@ -9,9 +9,10 @@ interface VideoCardProps {
 }
 
 export default function VideoCard({ video, onClick }: VideoCardProps) {
-  // Use YouTube thumbnail if no custom thumbnail provided
+  // Use YouTube thumbnail - hqdefault is reliably available for all videos
+  // maxresdefault is only available for high-quality uploads
   const thumbnailUrl = video.thumbnail_url ||
-    `https://img.youtube.com/vi/${video.youtube_id}/maxresdefault.jpg`;
+    `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
@@ -21,9 +22,11 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
           alt={video.title}
           className="w-full h-full object-cover"
           onError={(e) => {
-            // Fallback to standard quality thumbnail if maxres fails
+            // Fallback to lower quality if even hqdefault fails
             const target = e.target as HTMLImageElement;
-            target.src = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
+            if (!target.src.includes('mqdefault')) {
+              target.src = `https://img.youtube.com/vi/${video.youtube_id}/mqdefault.jpg`;
+            }
           }}
         />
         <button
