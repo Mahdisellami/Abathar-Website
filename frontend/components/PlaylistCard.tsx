@@ -7,26 +7,30 @@ interface PlaylistCardProps {
 }
 
 export default function PlaylistCard({ playlist, onClick }: PlaylistCardProps) {
-  // YouTube playlist thumbnail URL
-  // Format: https://img.youtube.com/vi/{first_video_id}/hqdefault.jpg
-  // Since we don't have first video ID, we'll use a generic playlist thumbnail
-  const thumbnailUrl = playlist.thumbnail_url ||
-    `https://img.youtube.com/vi/${playlist.playlist_id}/hqdefault.jpg`;
+  // YouTube playlists don't have direct thumbnail URLs
+  // Use custom thumbnail if provided, otherwise show gradient background with playlist icon
+  const hasCustomThumbnail = playlist.thumbnail_url && playlist.thumbnail_url.length > 0;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative aspect-video group cursor-pointer" onClick={onClick}>
-        <img
-          src={thumbnailUrl}
-          alt={playlist.title}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            // Fallback to a generic playlist icon background
-            const target = e.target as HTMLImageElement;
-            target.style.backgroundColor = '#1a1a1a';
-            target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIGZpbGw9IiMxYTFhMWEiLz48cGF0aCBkPSJNNDAgNDBINTZWNTZINDBWNDBaTTY0IDQwSDgwVjU2SDY0VjQwWk00MCA2NEg1NlY4MEg0MFY2NFpNNjQgNjRIODBWODBINjRWNjRaTTg4IDQwSDEwNFY1Nkg4OFY0MFpNODggNjRIMTA0VjgwSDg4VjY0WiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjMiLz48L3N2Zz4=';
-          }}
-        />
+        {hasCustomThumbnail ? (
+          <img
+            src={playlist.thumbnail_url}
+            alt={playlist.title}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Hide image on error and show gradient background
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+            }}
+          />
+        ) : null}
+
+        {/* Gradient background for playlists without custom thumbnails */}
+        {!hasCustomThumbnail && (
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-secondary-600 to-accent-600 dark:from-primary-700 dark:via-secondary-700 dark:to-accent-700" />
+        )}
 
         {/* Playlist overlay icon */}
         <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
