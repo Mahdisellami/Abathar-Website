@@ -13,6 +13,7 @@ from app.database import SessionLocal
 from app.models.bio import Bio
 from app.models.event import Event
 from app.models.ensemble import Ensemble
+from app.models.video import Video
 
 
 def seed_bio(db):
@@ -274,6 +275,71 @@ The ensemble has performed at significant venues including the European Champion
     print("Ensemble seeded successfully!")
 
 
+def seed_videos(db):
+    """Seed video data"""
+    print("Seeding videos...")
+
+    # Check if videos already exist
+    existing_count = db.query(Video).count()
+    if existing_count > 0:
+        print(f"{existing_count} videos already exist. Skipping...")
+        return
+
+    # TODO: Replace these placeholder videos with actual YouTube video data
+    # To get YouTube video ID: from URL https://www.youtube.com/watch?v=ABCD1234567
+    # the video ID is ABCD1234567
+    videos_data = [
+        {
+            "title": "Ogaro Ensemble - Live Performance at Gasteig HP8",
+            "youtube_id": "PLACEHOLDER_ID_1",  # Replace with actual YouTube video ID
+            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_1",
+            "description": "Live performance of Ogaro Ensemble at Gasteig HP8, Munich. Featuring transcultural compositions blending Eastern and Western musical traditions.",
+            "category": "concert",
+            "is_featured": True,
+            "display_order": 1,
+            "published_date": date(2024, 12, 15)
+        },
+        {
+            "title": "Oud Performance - Traditional Arabic Music",
+            "youtube_id": "PLACEHOLDER_ID_2",  # Replace with actual YouTube video ID
+            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_2",
+            "description": "Solo oud performance showcasing traditional Arabic maqamat and improvisations.",
+            "category": "performance",
+            "is_featured": True,
+            "display_order": 2,
+            "published_date": date(2024, 11, 20)
+        },
+        {
+            "title": "Interview: Transcultural Music Education",
+            "youtube_id": "PLACEHOLDER_ID_3",  # Replace with actual YouTube video ID
+            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_3",
+            "description": "Discussion about bridging Eastern and Western musical traditions in education.",
+            "category": "interview",
+            "is_featured": False,
+            "display_order": 3,
+            "published_date": date(2024, 10, 5)
+        },
+        {
+            "title": "Ogaro Ensemble Rehearsal Session",
+            "youtube_id": "PLACEHOLDER_ID_4",  # Replace with actual YouTube video ID
+            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_4",
+            "description": "Behind the scenes: Ogaro Ensemble rehearsal process.",
+            "category": "rehearsal",
+            "is_featured": False,
+            "display_order": 4,
+            "published_date": date(2024, 9, 12)
+        }
+    ]
+
+    for video_data in videos_data:
+        video = Video(**video_data)
+        db.add(video)
+
+    db.commit()
+    print(f"Seeded {len(videos_data)} videos successfully!")
+    print("NOTE: Videos have placeholder YouTube IDs. Update backend/seed_data.py with actual video IDs.")
+
+
 def seed_database():
     """Seed database function that can be called from anywhere"""
     print("=" * 50)
@@ -286,6 +352,7 @@ def seed_database():
         seed_bio(db)
         seed_events(db)
         seed_ensemble(db)
+        seed_videos(db)
 
         print("=" * 50)
         print("Database seeding completed successfully!")

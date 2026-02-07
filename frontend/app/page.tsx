@@ -2,29 +2,48 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { getEvents } from '@/lib/api';
+import { getEvents, getFeaturedVideos } from '@/lib/api';
 import EventCard from '@/components/EventCard';
-import type { Event } from '@/lib/types';
+import VideoGrid from '@/components/VideoGrid';
+import VideoModal from '@/components/VideoModal';
+import type { Event, Video } from '@/lib/types';
 
 export default function HomePage() {
   const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+  const [featuredVideos, setFeaturedVideos] = useState<Video[]>([]);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchEvents() {
+    async function fetchData() {
       try {
-        const events = await getEvents('upcoming');
+        const [events, videos] = await Promise.all([
+          getEvents('upcoming'),
+          getFeaturedVideos(3)
+        ]);
         setUpcomingEvents(events.slice(0, 3)); // Get first 3 upcoming events
+        setFeaturedVideos(videos);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load events');
+        setError(err instanceof Error ? err.message : 'Failed to load data');
       } finally {
         setLoading(false);
       }
     }
 
-    fetchEvents();
+    fetchData();
   }, []);
+
+  const handleVideoClick = (video: Video) => {
+    setSelectedVideo(video);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedVideo(null), 300);
+  };
 
   return (
     <div>
@@ -113,6 +132,40 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* Featured Videos */}
+      {!loading && featuredVideos.length > 0 && (
+        <section className="py-16 bg-white dark:bg-gray-900">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                Featured Performances
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Watch recent concert recordings and performances
+              </p>
+            </div>
+
+            <VideoGrid
+              videos={featuredVideos}
+              columns={3}
+              onVideoClick={handleVideoClick}
+            />
+
+            <div className="text-center mt-12">
+              <Link
+                href="/media"
+                className="inline-flex items-center px-6 py-3 text-base font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+              >
+                View all videos
+                <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -132,6 +185,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <VideoModal
+        video={selectedVideo}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }

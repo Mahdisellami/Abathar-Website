@@ -10,7 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from seed_data import seed_database
 
 # Import routers
-from .routers import bio, events, ensemble, contact
+from .routers import bio, events, ensemble, contact, videos
 
 app = FastAPI(
     title="Abathar Kmash Music Website API",
@@ -65,6 +65,7 @@ app.include_router(bio.router, prefix="/api", tags=["Biography"])
 app.include_router(events.router, prefix="/api", tags=["Events"])
 app.include_router(ensemble.router, prefix="/api", tags=["Ensemble"])
 app.include_router(contact.router, prefix="/api", tags=["Contact"])
+app.include_router(videos.router, prefix="/api", tags=["Videos"])
 
 
 if __name__ == "__main__":

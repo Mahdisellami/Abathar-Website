@@ -54,3 +54,21 @@ export interface ContactInfo {
   address: string;
   ensemble_email: string;
 }
+
+export interface Video {
+  id: number;
+  title: string;
+  youtube_id: string;
+  youtube_url: string;
+  description?: string;
+  thumbnail_url?: string;
+  duration?: string;
+  published_date?: string;
+  category?: string;
+  event_id?: number;
+  is_featured: boolean;
+  display_order: number;
+  is_visible: boolean;
+  created_at: string;
+  updated_at?: string;
+}
