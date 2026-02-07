@@ -33,8 +33,28 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_event():
     """Initialize database on startup"""
+    import os
+    from .models.video import Video
+    from .models.playlist import Playlist
+    from .database import SessionLocal
+
     create_tables()
     print("Database tables created successfully")
+
+    # Check if FORCE_RESEED environment variable is set
+    if os.getenv("FORCE_RESEED", "false").lower() == "true":
+        print("🔄 FORCE_RESEED detected - clearing existing data...")
+        db = SessionLocal()
+        try:
+            video_count = db.query(Video).delete()
+            playlist_count = db.query(Playlist).delete()
+            db.commit()
+            print(f"✓ Cleared {video_count} videos and {playlist_count} playlists")
+        except Exception as e:
+            print(f"Warning: Error clearing data: {e}")
+            db.rollback()
+        finally:
+            db.close()
 
     # Seed database with initial data (safe to run multiple times)
     try:
