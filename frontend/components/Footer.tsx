@@ -87,7 +87,7 @@ export default function Footer() {
               </h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://www.youtube.com/@abatharkmash"
+                  href="https://www.youtube.com/@abatharkmash3453"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors"

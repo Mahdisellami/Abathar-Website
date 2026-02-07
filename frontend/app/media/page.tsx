@@ -6,8 +6,8 @@ import type { Video } from '@/lib/types';
 import VideoGrid from '@/components/VideoGrid';
 import VideoModal from '@/components/VideoModal';
 
-// YouTube channel URL - update with actual channel URL
-const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@abatharkmash';
+// YouTube channel URL
+const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@abatharkmash3453';
 
 export default function MediaPage() {
   const [allVideos, setAllVideos] = useState<Video[]>([]);

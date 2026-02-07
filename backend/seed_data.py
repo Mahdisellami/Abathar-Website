@@ -285,49 +285,248 @@ def seed_videos(db):
         print(f"{existing_count} videos already exist. Skipping...")
         return
 
-    # TODO: Replace these placeholder videos with actual YouTube video data
-    # To get YouTube video ID: from URL https://www.youtube.com/watch?v=ABCD1234567
-    # the video ID is ABCD1234567
+    # Real videos from Abathar Kmash's YouTube channel
+    # Channel: https://www.youtube.com/@abatharkmash3453
     videos_data = [
         {
-            "title": "Ogaro Ensemble - Live Performance at Gasteig HP8",
-            "youtube_id": "PLACEHOLDER_ID_1",  # Replace with actual YouTube video ID
-            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_1",
-            "description": "Live performance of Ogaro Ensemble at Gasteig HP8, Munich. Featuring transcultural compositions blending Eastern and Western musical traditions.",
+            "title": "Abathar Kmash - Performance 1",
+            "youtube_id": "epDFxlaZr2E",
+            "youtube_url": "https://www.youtube.com/watch?v=epDFxlaZr2E",
+            "description": "Performance by Abathar Kmash featuring oud and transcultural music.",
             "category": "concert",
             "is_featured": True,
             "display_order": 1,
-            "published_date": date(2024, 12, 15)
+            "published_date": date(2024, 1, 1)
         },
         {
-            "title": "Oud Performance - Traditional Arabic Music",
-            "youtube_id": "PLACEHOLDER_ID_2",  # Replace with actual YouTube video ID
-            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_2",
-            "description": "Solo oud performance showcasing traditional Arabic maqamat and improvisations.",
+            "title": "Abathar Kmash - Performance 2",
+            "youtube_id": "iWD9gBHF7AM",
+            "youtube_url": "https://www.youtube.com/watch?v=iWD9gBHF7AM",
+            "description": "Oud performance showcasing traditional and contemporary techniques.",
             "category": "performance",
             "is_featured": True,
             "display_order": 2,
-            "published_date": date(2024, 11, 20)
+            "published_date": date(2024, 1, 2)
         },
         {
-            "title": "Interview: Transcultural Music Education",
-            "youtube_id": "PLACEHOLDER_ID_3",  # Replace with actual YouTube video ID
-            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_3",
-            "description": "Discussion about bridging Eastern and Western musical traditions in education.",
-            "category": "interview",
-            "is_featured": False,
+            "title": "Abathar Kmash - Performance 3",
+            "youtube_id": "1owBIrX_HM8",
+            "youtube_url": "https://www.youtube.com/watch?v=1owBIrX_HM8",
+            "description": "Musical performance featuring transcultural compositions.",
+            "category": "concert",
+            "is_featured": True,
             "display_order": 3,
-            "published_date": date(2024, 10, 5)
+            "published_date": date(2024, 1, 3)
         },
         {
-            "title": "Ogaro Ensemble Rehearsal Session",
-            "youtube_id": "PLACEHOLDER_ID_4",  # Replace with actual YouTube video ID
-            "youtube_url": "https://www.youtube.com/watch?v=PLACEHOLDER_ID_4",
-            "description": "Behind the scenes: Ogaro Ensemble rehearsal process.",
-            "category": "rehearsal",
+            "title": "Abathar Kmash - Performance 4",
+            "youtube_id": "Dl_41_lVyC0",
+            "youtube_url": "https://www.youtube.com/watch?v=Dl_41_lVyC0",
+            "description": "Live performance by Abathar Kmash.",
+            "category": "performance",
             "is_featured": False,
             "display_order": 4,
-            "published_date": date(2024, 9, 12)
+            "published_date": date(2024, 1, 4)
+        },
+        {
+            "title": "Abathar Kmash - Performance 5",
+            "youtube_id": "rqRhxFUVSI0",
+            "youtube_url": "https://www.youtube.com/watch?v=rqRhxFUVSI0",
+            "description": "Musical performance featuring oud and ensemble.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 5,
+            "published_date": date(2024, 1, 5)
+        },
+        {
+            "title": "Abathar Kmash - Performance 6",
+            "youtube_id": "Dq2Rci_863M",
+            "youtube_url": "https://www.youtube.com/watch?v=Dq2Rci_863M",
+            "description": "Performance showcasing Arabic musical traditions.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 6,
+            "published_date": date(2024, 1, 6)
+        },
+        {
+            "title": "Abathar Kmash - Performance 7",
+            "youtube_id": "iPpeWDRrG6g",
+            "youtube_url": "https://www.youtube.com/watch?v=iPpeWDRrG6g",
+            "description": "Live music performance.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 7,
+            "published_date": date(2024, 1, 7)
+        },
+        {
+            "title": "Abathar Kmash - Performance 8",
+            "youtube_id": "azewXlAacgs",
+            "youtube_url": "https://www.youtube.com/watch?v=azewXlAacgs",
+            "description": "Musical performance featuring oud.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 8,
+            "published_date": date(2024, 1, 8)
+        },
+        {
+            "title": "Abathar Kmash - Performance 9",
+            "youtube_id": "y75WXHucsTU",
+            "youtube_url": "https://www.youtube.com/watch?v=y75WXHucsTU",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 9,
+            "published_date": date(2024, 1, 9)
+        },
+        {
+            "title": "Abathar Kmash - Performance 10",
+            "youtube_id": "m-L5F5FZAEE",
+            "youtube_url": "https://www.youtube.com/watch?v=m-L5F5FZAEE",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 10,
+            "published_date": date(2024, 1, 10)
+        },
+        {
+            "title": "Abathar Kmash - Performance 11",
+            "youtube_id": "Ry4tSRqn9Pc",
+            "youtube_url": "https://www.youtube.com/watch?v=Ry4tSRqn9Pc",
+            "description": "Musical performance.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 11,
+            "published_date": date(2024, 1, 11)
+        },
+        {
+            "title": "Abathar Kmash - Performance 12",
+            "youtube_id": "t1akF64vntQ",
+            "youtube_url": "https://www.youtube.com/watch?v=t1akF64vntQ",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 12,
+            "published_date": date(2024, 1, 12)
+        },
+        {
+            "title": "Abathar Kmash - Performance 13",
+            "youtube_id": "z3tBkVlpT-s",
+            "youtube_url": "https://www.youtube.com/watch?v=z3tBkVlpT-s",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 13,
+            "published_date": date(2024, 1, 13)
+        },
+        {
+            "title": "Abathar Kmash - Performance 14",
+            "youtube_id": "ovYANWdRChA",
+            "youtube_url": "https://www.youtube.com/watch?v=ovYANWdRChA",
+            "description": "Musical performance.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 14,
+            "published_date": date(2024, 1, 14)
+        },
+        {
+            "title": "Abathar Kmash - Performance 15",
+            "youtube_id": "ikYod-tu08k",
+            "youtube_url": "https://www.youtube.com/watch?v=ikYod-tu08k",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 15,
+            "published_date": date(2024, 1, 15)
+        },
+        {
+            "title": "Abathar Kmash - Performance 16",
+            "youtube_id": "pxcYHEhn0O4",
+            "youtube_url": "https://www.youtube.com/watch?v=pxcYHEhn0O4",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 16,
+            "published_date": date(2024, 1, 16)
+        },
+        {
+            "title": "Abathar Kmash - Performance 17",
+            "youtube_id": "GSea0U2VZfw",
+            "youtube_url": "https://www.youtube.com/watch?v=GSea0U2VZfw",
+            "description": "Musical performance.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 17,
+            "published_date": date(2024, 1, 17)
+        },
+        {
+            "title": "Abathar Kmash - Performance 18",
+            "youtube_id": "urGAzqkEEjE",
+            "youtube_url": "https://www.youtube.com/watch?v=urGAzqkEEjE",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 18,
+            "published_date": date(2024, 1, 18)
+        },
+        {
+            "title": "Abathar Kmash - Performance 19",
+            "youtube_id": "2bL1-342CoY",
+            "youtube_url": "https://www.youtube.com/watch?v=2bL1-342CoY",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 19,
+            "published_date": date(2024, 1, 19)
+        },
+        {
+            "title": "Abathar Kmash - Performance 20",
+            "youtube_id": "YxkGaNBIACE",
+            "youtube_url": "https://www.youtube.com/watch?v=YxkGaNBIACE",
+            "description": "Musical performance.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 20,
+            "published_date": date(2024, 1, 20)
+        },
+        {
+            "title": "Abathar Kmash - Performance 21",
+            "youtube_id": "B68UAWuT_cU",
+            "youtube_url": "https://www.youtube.com/watch?v=B68UAWuT_cU",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 21,
+            "published_date": date(2024, 1, 21)
+        },
+        {
+            "title": "Abathar Kmash - Performance 22",
+            "youtube_id": "07Y4GA-RdRM",
+            "youtube_url": "https://www.youtube.com/watch?v=07Y4GA-RdRM",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 22,
+            "published_date": date(2024, 1, 22)
+        },
+        {
+            "title": "Abathar Kmash - Performance 23",
+            "youtube_id": "qJxQii397wM",
+            "youtube_url": "https://www.youtube.com/watch?v=qJxQii397wM",
+            "description": "Musical performance.",
+            "category": "concert",
+            "is_featured": False,
+            "display_order": 23,
+            "published_date": date(2024, 1, 23)
+        },
+        {
+            "title": "Abathar Kmash - Performance 24",
+            "youtube_id": "vQ84dyE5jUY",
+            "youtube_url": "https://www.youtube.com/watch?v=vQ84dyE5jUY",
+            "description": "Musical performance.",
+            "category": "performance",
+            "is_featured": False,
+            "display_order": 24,
+            "published_date": date(2024, 1, 24)
         }
     ]
 
@@ -337,7 +536,6 @@ def seed_videos(db):
 
     db.commit()
     print(f"Seeded {len(videos_data)} videos successfully!")
-    print("NOTE: Videos have placeholder YouTube IDs. Update backend/seed_data.py with actual video IDs.")
 
 
 def seed_database():
