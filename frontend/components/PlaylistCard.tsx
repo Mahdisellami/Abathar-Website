@@ -1,0 +1,82 @@
+import React from 'react';
+import type { Playlist } from '@/lib/types';
+
+interface PlaylistCardProps {
+  playlist: Playlist;
+  onClick?: () => void;
+}
+
+export default function PlaylistCard({ playlist, onClick }: PlaylistCardProps) {
+  // YouTube playlist thumbnail URL
+  // Format: https://img.youtube.com/vi/{first_video_id}/hqdefault.jpg
+  // Since we don't have first video ID, we'll use a generic playlist thumbnail
+  const thumbnailUrl = playlist.thumbnail_url ||
+    `https://img.youtube.com/vi/${playlist.playlist_id}/hqdefault.jpg`;
+
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <div className="relative aspect-video group cursor-pointer" onClick={onClick}>
+        <img
+          src={thumbnailUrl}
+          alt={playlist.title}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            // Fallback to a generic playlist icon background
+            const target = e.target as HTMLImageElement;
+            target.style.backgroundColor = '#1a1a1a';
+            target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIGZpbGw9IiMxYTFhMWEiLz48cGF0aCBkPSJNNDAgNDBINTZWNTZINDBWNDBaTTY0IDQwSDgwVjU2SDY0VjQwWk00MCA2NEg1NlY4MEg0MFY2NFpNNjQgNjRIODBWODBINjRWNjRaTTg4IDQwSDEwNFY1Nkg4OFY0MFpNODggNjRIMTA0VjgwSDg4VjY0WiIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjMiLz48L3N2Zz4=';
+          }}
+        />
+
+        {/* Playlist overlay icon */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
+          <div className="flex items-center space-x-2">
+            {/* Play button */}
+            <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+
+            {/* Playlist icon */}
+            <div className="flex flex-col space-y-1">
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Video count badge */}
+        {playlist.video_count && (
+          <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-sm px-3 py-1 rounded">
+            {playlist.video_count} Videos
+          </div>
+        )}
+      </div>
+
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+          {playlist.title}
+        </h3>
+
+        {playlist.description && (
+          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-2">
+            {playlist.description}
+          </p>
+        )}
+
+        <a
+          href={playlist.playlist_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="inline-flex items-center text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+        >
+          Playlist ansehen
+          <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}

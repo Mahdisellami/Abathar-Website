@@ -72,3 +72,18 @@ export interface Video {
   created_at: string;
   updated_at?: string;
 }
+
+export interface Playlist {
+  id: number;
+  title: string;
+  playlist_id: string;
+  playlist_url: string;
+  description?: string;
+  thumbnail_url?: string;
+  video_count?: number;
+  is_featured: boolean;
+  display_order: number;
+  is_visible: boolean;
+  created_at: string;
+  updated_at?: string;
+}

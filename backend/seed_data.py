@@ -14,6 +14,7 @@ from app.models.bio import Bio
 from app.models.event import Event
 from app.models.ensemble import Ensemble
 from app.models.video import Video
+from app.models.playlist import Playlist
 
 
 def seed_bio(db):
@@ -538,6 +539,70 @@ def seed_videos(db):
     print(f"Seeded {len(videos_data)} videos successfully!")
 
 
+def seed_playlists(db):
+    """Seed playlists data"""
+    print("Seeding playlists...")
+
+    # Check if playlists already exist
+    existing_count = db.query(Playlist).count()
+    if existing_count > 0:
+        print(f"{existing_count} playlists already exist. Skipping...")
+        return
+
+    # TODO: Replace these placeholder playlist IDs with actual playlist IDs from Abathar's channel
+    # YouTube playlist URL format: https://www.youtube.com/playlist?list=PLAYLIST_ID
+    playlists_data = [
+        {
+            "title": "Ogaro Ensemble Performances",
+            "playlist_id": "PLAYLIST_ID_1",  # Replace with actual playlist ID
+            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_1",
+            "description": "Collection of Ogaro Ensemble live performances and concerts",
+            "is_featured": True,
+            "display_order": 1,
+        },
+        {
+            "title": "Solo Oud Performances",
+            "playlist_id": "PLAYLIST_ID_2",  # Replace with actual playlist ID
+            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_2",
+            "description": "Solo oud performances by Abathar Kmash",
+            "is_featured": True,
+            "display_order": 2,
+        },
+        {
+            "title": "Collaborations",
+            "playlist_id": "PLAYLIST_ID_3",  # Replace with actual playlist ID
+            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_3",
+            "description": "Musical collaborations with various artists and ensembles",
+            "is_featured": False,
+            "display_order": 3,
+        },
+        {
+            "title": "Interviews and Talks",
+            "playlist_id": "PLAYLIST_ID_4",  # Replace with actual playlist ID
+            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_4",
+            "description": "Interviews about music, culture, and education",
+            "is_featured": False,
+            "display_order": 4,
+        },
+        {
+            "title": "Workshops and Teaching",
+            "playlist_id": "PLAYLIST_ID_5",  # Replace with actual playlist ID
+            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_5",
+            "description": "Educational content and workshop recordings",
+            "is_featured": False,
+            "display_order": 5,
+        },
+    ]
+
+    for playlist_data in playlists_data:
+        playlist = Playlist(**playlist_data)
+        db.add(playlist)
+
+    db.commit()
+    print(f"Seeded {len(playlists_data)} playlists successfully!")
+    print("NOTE: Playlists have placeholder IDs. Please update with actual playlist IDs from YouTube channel.")
+
+
 def seed_database():
     """Seed database function that can be called from anywhere"""
     print("=" * 50)
@@ -551,6 +616,7 @@ def seed_database():
         seed_events(db)
         seed_ensemble(db)
         seed_videos(db)
+        seed_playlists(db)
 
         print("=" * 50)
         print("Database seeding completed successfully!")

@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getVideos, getFeaturedVideos } from '@/lib/api';
-import type { Video } from '@/lib/types';
+import { getVideos, getFeaturedVideos, getPlaylists } from '@/lib/api';
+import type { Video, Playlist } from '@/lib/types';
 import VideoGrid from '@/components/VideoGrid';
 import VideoModal from '@/components/VideoModal';
+import PlaylistGrid from '@/components/PlaylistGrid';
 
 // YouTube channel URL
 const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@abatharkmash3453';
@@ -13,6 +14,7 @@ export default function MediaPage() {
   const [allVideos, setAllVideos] = useState<Video[]>([]);
   const [featuredVideos, setFeaturedVideos] = useState<Video[]>([]);
   const [filteredVideos, setFilteredVideos] = useState<Video[]>([]);
+  const [playlists, setPlaylists] = useState<Playlist[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,28 +22,30 @@ export default function MediaPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
         setError(null);
 
-        const [featured, all] = await Promise.all([
+        const [featured, all, playlistsData] = await Promise.all([
           getFeaturedVideos(3),
-          getVideos({ limit: 50 })
+          getVideos({ limit: 50 }),
+          getPlaylists({ limit: 20 })
         ]);
 
         setFeaturedVideos(featured);
         setAllVideos(all);
         setFilteredVideos(all);
+        setPlaylists(playlistsData);
       } catch (err) {
-        console.error('Failed to load videos:', err);
-        setError('Fehler beim Laden der Videos. Bitte versuchen Sie es später erneut.');
+        console.error('Failed to load media:', err);
+        setError('Fehler beim Laden der Medien. Bitte versuchen Sie es später erneut.');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchVideos();
+    fetchData();
   }, []);
 
   // Filter videos by category
@@ -121,8 +125,29 @@ export default function MediaPage() {
         </section>
       )}
 
+      {/* Playlists Section */}
+      {playlists.length > 0 && (
+        <section className="py-16 bg-gray-50 dark:bg-gray-800">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                Playlists
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Entdecken Sie kuratierte Sammlungen von Aufführungen und Aufnahmen
+              </p>
+            </div>
+            <PlaylistGrid
+              playlists={playlists}
+              columns={3}
+              onPlaylistClick={(playlist) => window.open(playlist.playlist_url, '_blank')}
+            />
+          </div>
+        </section>
+      )}
+
       {/* All Videos Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
             <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4 md:mb-0">
