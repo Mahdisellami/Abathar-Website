@@ -549,46 +549,45 @@ def seed_playlists(db):
         print(f"{existing_count} playlists already exist. Skipping...")
         return
 
-    # TODO: Replace these placeholder playlist IDs with actual playlist IDs from Abathar's channel
-    # YouTube playlist URL format: https://www.youtube.com/playlist?list=PLAYLIST_ID
+    # Playlists from Abathar Kmash's YouTube channel
     playlists_data = [
         {
-            "title": "Ogaro Ensemble Performances",
-            "playlist_id": "PLAYLIST_ID_1",  # Replace with actual playlist ID
-            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_1",
-            "description": "Collection of Ogaro Ensemble live performances and concerts",
+            "title": "Abathar Kmash Playlist 1",
+            "playlist_id": "PLsEOqTNaP9YIqemlmrUtcyT_4hDVQxYmD",
+            "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YIqemlmrUtcyT_4hDVQxYmD",
+            "description": "Collection of performances by Abathar Kmash",
             "is_featured": True,
             "display_order": 1,
         },
         {
-            "title": "Solo Oud Performances",
-            "playlist_id": "PLAYLIST_ID_2",  # Replace with actual playlist ID
-            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_2",
-            "description": "Solo oud performances by Abathar Kmash",
+            "title": "Abathar Kmash Playlist 2",
+            "playlist_id": "PLsEOqTNaP9YJECY4kMURaQcgk9oWvsd3z",
+            "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YJECY4kMURaQcgk9oWvsd3z",
+            "description": "Performances and recordings by Abathar Kmash",
             "is_featured": True,
             "display_order": 2,
         },
         {
-            "title": "Collaborations",
-            "playlist_id": "PLAYLIST_ID_3",  # Replace with actual playlist ID
-            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_3",
-            "description": "Musical collaborations with various artists and ensembles",
-            "is_featured": False,
+            "title": "Abathar Kmash Playlist 3",
+            "playlist_id": "PLsEOqTNaP9YJ2DKbwmaFbO3F7EJKJQZ92",
+            "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YJ2DKbwmaFbO3F7EJKJQZ92",
+            "description": "Musical performances and concerts",
+            "is_featured": True,
             "display_order": 3,
         },
         {
-            "title": "Interviews and Talks",
-            "playlist_id": "PLAYLIST_ID_4",  # Replace with actual playlist ID
-            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_4",
-            "description": "Interviews about music, culture, and education",
+            "title": "Abathar Kmash Playlist 4",
+            "playlist_id": "PLsEOqTNaP9YIEtK6UT_zC27PRlWWb83Jo",
+            "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YIEtK6UT_zC27PRlWWb83Jo",
+            "description": "Performance collection",
             "is_featured": False,
             "display_order": 4,
         },
         {
-            "title": "Workshops and Teaching",
-            "playlist_id": "PLAYLIST_ID_5",  # Replace with actual playlist ID
-            "playlist_url": "https://www.youtube.com/playlist?list=PLAYLIST_ID_5",
-            "description": "Educational content and workshop recordings",
+            "title": "Abathar Kmash Playlist 5",
+            "playlist_id": "PLsEOqTNaP9YKRehqZhZ6Y8RX_DkVhl54g",
+            "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YKRehqZhZ6Y8RX_DkVhl54g",
+            "description": "Recordings and live performances",
             "is_featured": False,
             "display_order": 5,
         },
@@ -600,7 +599,6 @@ def seed_playlists(db):
 
     db.commit()
     print(f"Seeded {len(playlists_data)} playlists successfully!")
-    print("NOTE: Playlists have placeholder IDs. Please update with actual playlist IDs from YouTube channel.")
 
 
 def seed_database():
