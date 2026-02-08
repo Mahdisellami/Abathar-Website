@@ -550,44 +550,56 @@ def seed_playlists(db):
         return
 
     # Playlists from Abathar Kmash's YouTube channel
+    # Note: Playlist titles need to be manually updated from YouTube
+    # Thumbnail URLs use the first video in each playlist for preview
     playlists_data = [
         {
-            "title": "Abathar Kmash Playlist 1",
+            "title": "Ogaro Ensemble",
             "playlist_id": "PLsEOqTNaP9YIqemlmrUtcyT_4hDVQxYmD",
             "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YIqemlmrUtcyT_4hDVQxYmD",
-            "description": "Collection of performances by Abathar Kmash",
+            "description": "Performances by Ogaro Ensemble featuring Abathar Kmash",
+            "video_count": 2,
+            "thumbnail_url": "https://img.youtube.com/vi/vQ84dyE5jUY/hqdefault.jpg",  # First video in playlist
             "is_featured": True,
             "display_order": 1,
         },
         {
-            "title": "Abathar Kmash Playlist 2",
+            "title": "Sufi, Ancient to Balkan",
             "playlist_id": "PLsEOqTNaP9YJECY4kMURaQcgk9oWvsd3z",
             "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YJECY4kMURaQcgk9oWvsd3z",
-            "description": "Performances and recordings by Abathar Kmash",
+            "description": "Musical journey from Sufi traditions to Balkan sounds",
+            "video_count": 4,
+            "thumbnail_url": "https://img.youtube.com/vi/rqRhxFUVSI0/hqdefault.jpg",  # First video in playlist
             "is_featured": True,
             "display_order": 2,
         },
         {
-            "title": "Abathar Kmash Playlist 3",
+            "title": "European Championships Munich 2022",
             "playlist_id": "PLsEOqTNaP9YJ2DKbwmaFbO3F7EJKJQZ92",
             "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YJ2DKbwmaFbO3F7EJKJQZ92",
-            "description": "Musical performances and concerts",
+            "description": "Performances at European Championships Munich 2022",
+            "video_count": 6,
+            "thumbnail_url": "https://img.youtube.com/vi/n9bspXnxS_0/hqdefault.jpg",  # First video in playlist
             "is_featured": True,
             "display_order": 3,
         },
         {
-            "title": "Abathar Kmash Playlist 4",
+            "title": "Met in Munich",
             "playlist_id": "PLsEOqTNaP9YIEtK6UT_zC27PRlWWb83Jo",
             "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YIEtK6UT_zC27PRlWWb83Jo",
-            "description": "Performance collection",
+            "description": "Musical encounters and collaborations in Munich",
+            "video_count": 3,
+            "thumbnail_url": "https://img.youtube.com/vi/aRN-OKOo3QA/hqdefault.jpg",  # First video in playlist
             "is_featured": False,
             "display_order": 4,
         },
         {
-            "title": "Abathar Kmash Playlist 5",
+            "title": "Import Export",
             "playlist_id": "PLsEOqTNaP9YKRehqZhZ6Y8RX_DkVhl54g",
             "playlist_url": "https://www.youtube.com/playlist?list=PLsEOqTNaP9YKRehqZhZ6Y8RX_DkVhl54g",
-            "description": "Recordings and live performances",
+            "description": "Cross-cultural musical exchanges and performances",
+            "video_count": 1,
+            "thumbnail_url": "https://img.youtube.com/vi/azewXlAacgs/hqdefault.jpg",  # First video in playlist
             "is_featured": False,
             "display_order": 5,
         },

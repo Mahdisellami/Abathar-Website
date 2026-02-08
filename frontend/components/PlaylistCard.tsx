@@ -7,29 +7,25 @@ interface PlaylistCardProps {
 }
 
 export default function PlaylistCard({ playlist, onClick }: PlaylistCardProps) {
-  // YouTube playlists don't have direct thumbnail URLs
-  // Use custom thumbnail if provided, otherwise show gradient background with playlist icon
-  const hasCustomThumbnail = playlist.thumbnail_url && playlist.thumbnail_url.length > 0;
+  const [imageError, setImageError] = React.useState(false);
+
+  // Use thumbnail from first video in playlist if available
+  const hasCustomThumbnail = playlist.thumbnail_url && playlist.thumbnail_url.length > 0 && !imageError;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative aspect-video group cursor-pointer" onClick={onClick}>
-        {hasCustomThumbnail ? (
+        {/* Always show gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-secondary-600 to-accent-600 dark:from-primary-700 dark:via-secondary-700 dark:to-accent-700" />
+
+        {/* Thumbnail image overlay if available */}
+        {hasCustomThumbnail && (
           <img
             src={playlist.thumbnail_url}
             alt={playlist.title}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              // Hide image on error and show gradient background
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-            }}
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={() => setImageError(true)}
           />
-        ) : null}
-
-        {/* Gradient background for playlists without custom thumbnails */}
-        {!hasCustomThumbnail && (
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-secondary-600 to-accent-600 dark:from-primary-700 dark:via-secondary-700 dark:to-accent-700" />
         )}
 
         {/* Playlist overlay icon */}
