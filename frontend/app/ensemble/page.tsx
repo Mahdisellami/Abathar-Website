@@ -3,12 +3,29 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { getEnsemble } from '@/lib/api';
+import PhotoGallery from '@/components/PhotoGallery';
 import type { Ensemble } from '@/lib/types';
 
 export default function EnsemblePage() {
   const [ensemble, setEnsemble] = useState<Ensemble | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Performance photos
+  const performancePhotos = [
+    { src: '/images/performances/performance-01.jpg', alt: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-02.jpg', alt: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-03.jpg', alt: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-04.jpg', alt: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-05.jpg', alt: 'Ogaro Ensemble Stage Performance' },
+    { src: '/images/performances/performance-06.jpg', alt: 'Ogaro Ensemble Stage Performance' },
+    { src: '/images/performances/performance-07.jpg', alt: 'Sound of Munich Now 2021' },
+    { src: '/images/performances/performance-08.jpg', alt: 'European Championships 2022' },
+    { src: '/images/performances/performance-09.jpg', alt: 'European Championships 2022' },
+    { src: '/images/performances/performance-10.jpg', alt: 'European Championships 2022' },
+    { src: '/images/performances/performance-11.jpg', alt: 'European Championships 2022' },
+    { src: '/images/performances/performance-12.jpg', alt: 'Ogaro Ensemble Event' },
+  ];
 
   useEffect(() => {
     async function fetchEnsemble() {
@@ -165,6 +182,17 @@ export default function EnsemblePage() {
               </div>
             </div>
           )}
+
+          {/* Performance Gallery */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-6 text-center">
+              Performance Gallery
+            </h2>
+            <p className="text-center text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+              Explore our performances from various concerts and festivals, including Sound of Munich Now 2021 and European Championships 2022.
+            </p>
+            <PhotoGallery photos={performancePhotos} />
+          </div>
 
           {/* Contact Information */}
           <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg p-8 text-white text-center">
