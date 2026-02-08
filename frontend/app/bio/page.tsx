@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { getBio } from '@/lib/api';
 import type { Bio } from '@/lib/types';
 
@@ -58,22 +59,40 @@ export default function BioPage() {
 
       {/* Biography Content */}
       <section className="py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          {/* Main Bio Text */}
-          <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
-            {bio.bio_text.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
-                {paragraph}
-              </p>
-            ))}
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          {/* Profile Photo and Bio Text */}
+          <div className="flex flex-col md:flex-row gap-8 mb-12">
+            {/* Profile Photo */}
+            <div className="md:w-1/3">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl sticky top-8">
+                <Image
+                  src="/images/profile-abathar.jpg"
+                  alt="Abathar Kmash"
+                  fill
+                  className="object-cover"
+                  quality={85}
+                />
+              </div>
+            </div>
+
+            {/* Main Bio Text */}
+            <div className="md:w-2/3 prose prose-lg dark:prose-invert max-w-none">
+              {bio.bio_text.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="text-gray-700 dark:text-gray-300 mb-4">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
-          {/* Education */}
-          {bio.education && bio.education.length > 0 && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-6">
-                Education
-              </h2>
+          {/* Remaining Sections */}
+          <div className="max-w-4xl mx-auto">
+            {/* Education */}
+            {bio.education && bio.education.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+                  Education
+                </h2>
               <div className="space-y-4">
                 {bio.education.map((edu, index) => (
                   <div key={index} className="border-l-4 border-primary-600 dark:border-primary-400 pl-4">
@@ -155,6 +174,7 @@ export default function BioPage() {
               </div>
             </div>
           )}
+          </div>
         </div>
       </section>
     </div>

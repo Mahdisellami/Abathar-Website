@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getEvents, getFeaturedVideos } from '@/lib/api';
 import EventCard from '@/components/EventCard';
 import VideoGrid from '@/components/VideoGrid';
@@ -48,8 +49,24 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20 md:py-32">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-performance.jpg"
+            alt="Abathar Kmash performing with Ogaro Ensemble"
+            fill
+            priority
+            className="object-cover"
+            quality={90}
+          />
+        </div>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/95 via-secondary-50/95 to-accent-50/90 dark:from-gray-900/95 dark:via-gray-800/95 dark:to-gray-900/90"></div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 dark:text-white mb-6 animate-fade-in">
               Welcome to My Musical World
@@ -81,19 +98,35 @@ export default function HomePage() {
       {/* Introduction */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-6">
-              About Abathar Kmash
-            </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-              Born in As-Suwaida, Syria in 1987, I am an oud and cello performer with a passion for transcultural music.
-              Currently pursuing an M.A. in Music.World at Hildesheim University, I have dedicated my career to bridging
-              Eastern and Western musical traditions.
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              As the founder of <strong>Ogaro Ensemble</strong> and instructor at Hildesheim University, I create
-              musical experiences that span from Damascus to Istanbul, from Alexandria to Baghdad.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Image */}
+            <div className="order-2 md:order-1">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/images/about-performing.jpg"
+                  alt="Abathar Kmash performing on oud"
+                  fill
+                  className="object-cover"
+                  quality={85}
+                />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="order-1 md:order-2">
+              <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+                About Abathar Kmash
+              </h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                Born in As-Suwaida, Syria in 1987, I am an oud and cello performer with a passion for transcultural music.
+                Currently pursuing an M.A. in Music.World at Hildesheim University, I have dedicated my career to bridging
+                Eastern and Western musical traditions.
+              </p>
+              <p className="text-lg text-gray-700 dark:text-gray-300">
+                As the founder of <strong>Ogaro Ensemble</strong> and instructor at Hildesheim University, I create
+                musical experiences that span from Damascus to Istanbul, from Alexandria to Baghdad.
+              </p>
+            </div>
           </div>
         </div>
       </section>

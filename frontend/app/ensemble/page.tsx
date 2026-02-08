@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { getEnsemble } from '@/lib/api';
 import type { Ensemble } from '@/lib/types';
 
@@ -45,8 +46,24 @@ export default function EnsemblePage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative overflow-hidden py-16">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/ensemble-group.jpg"
+            alt="Ogaro Ensemble members"
+            fill
+            priority
+            className="object-cover"
+            quality={90}
+          />
+        </div>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/90 via-secondary-50/90 to-accent-50/85 dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/85"></div>
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-4">
             {ensemble.name}
           </h1>
