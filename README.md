@@ -106,6 +106,7 @@ Frontend will be available at: http://localhost:3000
 - Ogaro Ensemble page with member profiles
 - Contact page with Impressum
 - **Media page with video gallery and playlists** 🆕
+- **Photo Gallery page with performance photos** 🆕
 
 ✅ **YouTube Integration** 🆕
 - **24 real performance videos** from Abathar's YouTube channel
@@ -115,6 +116,17 @@ Frontend will be available at: http://localhost:3000
 - Category filtering (concert, performance, interview, rehearsal)
 - Playlist cards with gradient backgrounds
 - Direct YouTube channel subscription link
+
+✅ **Professional Photo Gallery** 🆕
+- **16 professional photos** from original website
+- Hero background images on homepage, bio, and ensemble pages
+- Side-by-side layouts with performance images
+- Dedicated photo gallery page with category filtering
+- Interactive lightbox viewer with keyboard navigation
+- Photo credits to photographers: Marie Lehmann, Lena Semmelroggen, Axel Heimken, Ananda Nefzger
+- Performance photos from Sound of Munich Now 2021/2023 and European Championships 2022
+- Responsive grid layouts with hover effects
+- Next.js Image optimization for fast loading
 
 ✅ **Dual Theme System**
 - **Modern Theme**: Clean, minimalist design with warm colors
@@ -197,6 +209,89 @@ YouTube provides multiple thumbnail sizes for videos:
 - Live stream integration
 - Comments section
 
+## Photo Gallery Integration
+
+### Overview
+
+The website features **16 professional photos** scraped from the original website (https://abathar-kmash.de/), showcasing Abathar Kmash and Ogaro Ensemble performances from various concerts and festivals.
+
+### Photo Assets
+
+**Location**: `frontend/public/images/`
+
+```
+frontend/public/images/
+├── hero-performance.jpg (153KB) - Homepage hero background
+├── profile-abathar.jpg (154KB) - Bio page profile portrait
+├── ensemble-group.jpg (593KB) - Ensemble page hero
+├── about-performing.jpg (82KB) - Homepage about section
+└── performances/ (12 photos, ~1.1MB total)
+    ├── performance-01.jpg through performance-12.jpg
+    └── From various events (2021-2022)
+```
+
+### Photo Sources & Credits
+
+All photos credit to professional photographers:
+
+1. **Marie Lehmann** (@mariellemilia) - Sound of Munich Now 2023
+2. **Lena Semmelroggen** - Portrait photography
+3. **Axel Heimken** - European Championships 2022 (4 photos)
+4. **Ananda Nefzger** - Sound of Munich Now 2021
+
+### Components
+
+1. **PhotoGallery Component** (`/frontend/components/PhotoGallery.tsx`):
+   - Responsive grid layout (1-3 columns based on screen size)
+   - Lightbox modal viewer with image zoom
+   - Keyboard navigation (← → arrows, ESC to close)
+   - Photo counter (e.g., "3 / 12")
+   - Click to expand, click outside to close
+   - Photo captions with photographer credits
+   - Hover effects and smooth transitions
+
+2. **Gallery Page** (`/frontend/app/gallery/page.tsx`):
+   - Category filtering: All Photos, Portraits & Featured, Performances
+   - Photographer credits section
+   - 16 total photos organized by category
+   - Responsive design for all devices
+
+3. **Integration in Other Pages**:
+   - Homepage: Hero background + About section image
+   - Bio page: Profile portrait with side-by-side layout
+   - Ensemble page: Group photo hero + 12-photo performance gallery
+
+### Implementation Details
+
+- **Optimization**: Using Next.js `Image` component for automatic optimization
+- **Quality**: Images served at 85-90% quality for balance
+- **Loading**: Priority loading for hero images, lazy loading for gallery
+- **Responsive**: Proper `sizes` attribute for responsive images
+- **Accessibility**: Alt text for all images, ARIA labels for lightbox
+
+### Photo Categories
+
+1. **Portraits & Featured** (4 photos):
+   - Hero performance photo
+   - Profile portrait
+   - Ensemble group photo
+   - About section performance
+
+2. **Performances** (12 photos):
+   - Stage performances
+   - Sound of Munich Now 2021/2023
+   - European Championships 2022
+   - Various concert venues
+
+### Future Enhancements
+
+- Convert to WebP format for better compression
+- Add image lazy loading with blur placeholders
+- Link photos to related events in database
+- Add download options for high-resolution images
+- Implement masonry grid layout
+- Add sharing functionality
+
 ### Future Features (Prepared)
 
 🚀 **AI Chatbot**
@@ -219,13 +314,15 @@ YouTube provides multiple thumbnail sizes for videos:
 ## Pages
 
 ### 1. Home (`/`)
-- Hero section with call-to-action
-- Introduction
+- Hero section with performance background image
+- Side-by-side introduction with performance photo
 - Featured upcoming events (next 3)
 - Featured videos section (next 3)
 - Music lessons CTA
 
 ### 2. Biography (`/bio`)
+- Hero section with title
+- Profile portrait photo with sticky positioning
 - Complete bio with personal background
 - Education timeline
 - Current professional roles
@@ -238,10 +335,12 @@ YouTube provides multiple thumbnail sizes for videos:
 - Ensemble and event type tags
 
 ### 4. Ensemble (`/ensemble`)
+- Hero section with ensemble group photo background
 - Ogaro Ensemble description
 - Musical style and vision
 - Member profiles with instruments
 - Performance highlights
+- **Performance photo gallery with lightbox viewer** 🆕
 - Booking information
 
 ### 5. Media (`/media`)
@@ -253,7 +352,16 @@ YouTube provides multiple thumbnail sizes for videos:
 - Playlist cards with gradient backgrounds
 - Subscribe to YouTube channel link
 
-### 6. Contact (`/contact`)
+### 6. Gallery (`/gallery`) 🆕
+- Dedicated photo gallery page
+- 16 professional photos from concerts and events
+- Category filtering: All, Portraits & Featured, Performances
+- Interactive lightbox viewer with keyboard navigation (arrows, escape)
+- Photo captions with event details
+- Photographer credits section
+- Responsive masonry grid layout
+
+### 7. Contact (`/contact`)
 - Contact details (email, phone, address)
 - Ogaro Ensemble contact
 - Impressum (legal information)
@@ -634,8 +742,12 @@ This is a personal portfolio project. For suggestions or issues, contact abathar
 
 - **Original Website**: https://abathar-kmash.de/
 - **WordPress Theme**: Euphony by Catch Themes
-- **Photos**: Marie Lehmann (@mariellemilia)
-- **Built with**: FastAPI, Next.js, PostgreSQL
+- **Photography**:
+  - Marie Lehmann (@mariellemilia) - Sound of Munich Now 2023
+  - Lena Semmelroggen - Portrait photography
+  - Axel Heimken - European Championships 2022
+  - Ananda Nefzger - Sound of Munich Now 2021
+- **Built with**: FastAPI, Next.js, PostgreSQL, Tailwind CSS
 
 ## License
 
