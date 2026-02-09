@@ -61,6 +61,10 @@ out/
 htmlcov/
 .pytest_cache/
 .tox/
+coverage/
+coverage.xml
+playwright-report/
+test-results/
 
 # Docker
 .dockerignore
