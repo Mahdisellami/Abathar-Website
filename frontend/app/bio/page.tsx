@@ -66,7 +66,7 @@ export default function BioPage() {
             <div className="md:w-1/3">
               <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl sticky top-8">
                 <Image
-                  src="/images/profile-abathar.jpg"
+                  src="/images/profile-abathar.webp"
                   alt="Abathar Kmash"
                   fill
                   className="object-cover"

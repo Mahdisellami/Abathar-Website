@@ -106,6 +106,43 @@ def seed_events(db):
         return
 
     events = [
+        # Past Events with Photos
+        Event(
+            title="Sound of Munich Now 2021",
+            date=date(2021, 8, 14),
+            time="20:00",
+            venue="Olympiapark",
+            location="München",
+            description="Ogaro Ensemble performance at Sound of Munich Now Festival",
+            ensemble_name="Ogaro Ensemble",
+            event_type="festival",
+            photo_url="/images/performances/performance-07.webp",
+            is_past=True
+        ),
+        Event(
+            title="European Championships 2022 Opening",
+            date=date(2022, 8, 17),
+            time="19:00",
+            venue="Olympiapark",
+            location="München",
+            description="Ogaro Ensemble performance at European Championships 2022 opening ceremony",
+            ensemble_name="Ogaro Ensemble",
+            event_type="festival",
+            photo_url="/images/performances/performance-08.webp",
+            is_past=True
+        ),
+        Event(
+            title="Sound of Munich Now 2023",
+            date=date(2023, 7, 15),
+            time="21:00",
+            venue="Olympiapark",
+            location="München",
+            description="Ogaro Ensemble performance at Sound of Munich Now Festival",
+            ensemble_name="Ogaro Ensemble",
+            event_type="festival",
+            photo_url="/images/hero-performance.webp",
+            is_past=True
+        ),
         # 2026 Upcoming Events
         Event(
             title="Ogaro Ensemble",

@@ -8,6 +8,7 @@ export interface Event {
   description?: string;
   ensemble_name?: string;
   event_type?: string;
+  photo_url?: string;
   is_past: boolean;
 }
 

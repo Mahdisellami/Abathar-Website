@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { format, parseISO } from 'date-fns';
 import type { Event } from '@/lib/types';
 
@@ -14,29 +15,43 @@ export default function EventCard({ event }: EventCardProps) {
   const dayOfWeek = format(eventDate, 'EEEE');
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200 dark:border-gray-700">
-      {/* Date Badge */}
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex-shrink-0 text-center bg-primary-50 dark:bg-primary-900/20 rounded-lg p-3">
-          <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-            {format(eventDate, 'd')}
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden border border-gray-200 dark:border-gray-700">
+      {/* Event Photo */}
+      {event.photo_url && (
+        <div className="relative h-48 w-full">
+          <Image
+            src={event.photo_url}
+            alt={event.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
+
+      <div className="p-6">
+        {/* Date Badge */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-shrink-0 text-center bg-primary-50 dark:bg-primary-900/20 rounded-lg p-3">
+            <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+              {format(eventDate, 'd')}
+            </div>
+            <div className="text-xs font-medium text-primary-600 dark:text-primary-400">
+              {format(eventDate, 'MMM')}
+            </div>
           </div>
-          <div className="text-xs font-medium text-primary-600 dark:text-primary-400">
-            {format(eventDate, 'MMM')}
-          </div>
+
+          {event.is_past && (
+            <span className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full">
+              Past Event
+            </span>
+          )}
         </div>
 
-        {event.is_past && (
-          <span className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full">
-            Past Event
-          </span>
-        )}
-      </div>
-
-      {/* Event Details */}
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-        {event.title}
-      </h3>
+        {/* Event Details */}
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          {event.title}
+        </h3>
 
       <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
         {/* Date & Time */}
@@ -85,6 +100,7 @@ export default function EventCard({ event }: EventCardProps) {
             </span>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

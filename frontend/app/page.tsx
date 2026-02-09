@@ -53,7 +53,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-performance.jpg"
+            src="/images/hero-performance.webp"
             alt="Abathar Kmash performing with Ogaro Ensemble"
             fill
             priority
@@ -103,7 +103,7 @@ export default function HomePage() {
             <div className="order-2 md:order-1">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
                 <Image
-                  src="/images/about-performing.jpg"
+                  src="/images/about-performing.webp"
                   alt="Abathar Kmash performing on oud"
                   fill
                   className="object-cover"

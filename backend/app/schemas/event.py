@@ -13,6 +13,7 @@ class EventBase(BaseModel):
     description: Optional[str] = None
     ensemble_name: Optional[str] = Field(None, max_length=255)
     event_type: Optional[str] = Field(None, max_length=100)
+    photo_url: Optional[str] = Field(None, max_length=500)
     is_past: bool = False
 
 
@@ -31,6 +32,7 @@ class EventUpdate(BaseModel):
     description: Optional[str] = None
     ensemble_name: Optional[str] = Field(None, max_length=255)
     event_type: Optional[str] = Field(None, max_length=100)
+    photo_url: Optional[str] = Field(None, max_length=500)
     is_past: Optional[bool] = None
 
 

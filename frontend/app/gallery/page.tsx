@@ -9,26 +9,26 @@ export default function GalleryPage() {
 
   // All performance photos
   const performancePhotos = [
-    { src: '/images/performances/performance-01.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
-    { src: '/images/performances/performance-02.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
-    { src: '/images/performances/performance-03.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
-    { src: '/images/performances/performance-04.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
-    { src: '/images/performances/performance-05.jpg', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance', category: 'performances' },
-    { src: '/images/performances/performance-06.jpg', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance', category: 'performances' },
-    { src: '/images/performances/performance-07.jpg', alt: 'Sound of Munich Now 2021', caption: 'Sound of Munich Now 2021 - Photo: Ananda Nefzger', category: 'performances' },
-    { src: '/images/performances/performance-08.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
-    { src: '/images/performances/performance-09.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
-    { src: '/images/performances/performance-10.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
-    { src: '/images/performances/performance-11.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
-    { src: '/images/performances/performance-12.jpg', alt: 'Ogaro Ensemble Event', caption: 'Ogaro Ensemble Performance', category: 'performances' },
+    { src: '/images/performances/performance-01.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
+    { src: '/images/performances/performance-02.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
+    { src: '/images/performances/performance-03.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
+    { src: '/images/performances/performance-04.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance', category: 'performances' },
+    { src: '/images/performances/performance-05.webp', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance', category: 'performances' },
+    { src: '/images/performances/performance-06.webp', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance', category: 'performances' },
+    { src: '/images/performances/performance-07.webp', alt: 'Sound of Munich Now 2021', caption: 'Sound of Munich Now 2021 - Photo: Ananda Nefzger', category: 'performances' },
+    { src: '/images/performances/performance-08.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
+    { src: '/images/performances/performance-09.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
+    { src: '/images/performances/performance-10.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
+    { src: '/images/performances/performance-11.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken', category: 'performances' },
+    { src: '/images/performances/performance-12.webp', alt: 'Ogaro Ensemble Event', caption: 'Ogaro Ensemble Performance', category: 'performances' },
   ];
 
   // Portrait and featured photos
   const portraitPhotos = [
-    { src: '/images/hero-performance.jpg', alt: 'Ogaro Ensemble at Sound of Munich Now', caption: 'Ogaro Ensemble - Sound of Munich Now 2023 - Photo: Marie Lehmann (@mariellemilia)', category: 'portraits' },
-    { src: '/images/profile-abathar.jpg', alt: 'Abathar Kmash Portrait', caption: 'Abathar Kmash - Photo: Lena Semmelroggen', category: 'portraits' },
-    { src: '/images/ensemble-group.jpg', alt: 'Ogaro Ensemble Group Photo', caption: 'Ogaro Ensemble Group Photo', category: 'portraits' },
-    { src: '/images/about-performing.jpg', alt: 'Abathar Performing', caption: 'Abathar Kmash performing on oud', category: 'portraits' },
+    { src: '/images/hero-performance.webp', alt: 'Ogaro Ensemble at Sound of Munich Now', caption: 'Ogaro Ensemble - Sound of Munich Now 2023 - Photo: Marie Lehmann (@mariellemilia)', category: 'portraits' },
+    { src: '/images/profile-abathar.webp', alt: 'Abathar Kmash Portrait', caption: 'Abathar Kmash - Photo: Lena Semmelroggen', category: 'portraits' },
+    { src: '/images/ensemble-group.webp', alt: 'Ogaro Ensemble Group Photo', caption: 'Ogaro Ensemble Group Photo', category: 'portraits' },
+    { src: '/images/about-performing.webp', alt: 'Abathar Performing', caption: 'Abathar Kmash performing on oud', category: 'portraits' },
   ];
 
   const allPhotos = [...portraitPhotos, ...performancePhotos];

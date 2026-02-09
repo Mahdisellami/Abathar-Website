@@ -13,18 +13,18 @@ export default function EnsemblePage() {
 
   // Performance photos
   const performancePhotos = [
-    { src: '/images/performances/performance-01.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
-    { src: '/images/performances/performance-02.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
-    { src: '/images/performances/performance-03.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
-    { src: '/images/performances/performance-04.jpg', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
-    { src: '/images/performances/performance-05.jpg', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance' },
-    { src: '/images/performances/performance-06.jpg', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance' },
-    { src: '/images/performances/performance-07.jpg', alt: 'Sound of Munich Now 2021', caption: 'Sound of Munich Now 2021 - Photo: Ananda Nefzger' },
-    { src: '/images/performances/performance-08.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
-    { src: '/images/performances/performance-09.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
-    { src: '/images/performances/performance-10.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
-    { src: '/images/performances/performance-11.jpg', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
-    { src: '/images/performances/performance-12.jpg', alt: 'Ogaro Ensemble Event', caption: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-01.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-02.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-03.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-04.webp', alt: 'Ogaro Ensemble Performance', caption: 'Ogaro Ensemble Performance' },
+    { src: '/images/performances/performance-05.webp', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance' },
+    { src: '/images/performances/performance-06.webp', alt: 'Ogaro Ensemble Stage Performance', caption: 'Ogaro Ensemble Stage Performance' },
+    { src: '/images/performances/performance-07.webp', alt: 'Sound of Munich Now 2021', caption: 'Sound of Munich Now 2021 - Photo: Ananda Nefzger' },
+    { src: '/images/performances/performance-08.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
+    { src: '/images/performances/performance-09.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
+    { src: '/images/performances/performance-10.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
+    { src: '/images/performances/performance-11.webp', alt: 'European Championships 2022', caption: 'European Championships 2022 - Photo: Axel Heimken' },
+    { src: '/images/performances/performance-12.webp', alt: 'Ogaro Ensemble Event', caption: 'Ogaro Ensemble Performance' },
   ];
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function EnsemblePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ensemble-group.jpg"
+            src="/images/ensemble-group.webp"
             alt="Ogaro Ensemble members"
             fill
             priority

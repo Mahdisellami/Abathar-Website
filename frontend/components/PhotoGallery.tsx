@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Masonry from 'react-masonry-css';
 
 interface Photo {
   src: string;
@@ -16,6 +17,12 @@ interface PhotoGalleryProps {
 export default function PhotoGallery({ photos }: PhotoGalleryProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+
+  const breakpointColumns = {
+    default: 3,
+    1100: 2,
+    700: 1
+  };
 
   const openLightbox = (photo: Photo, index: number) => {
     setSelectedPhoto(photo);
@@ -46,20 +53,25 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
 
   return (
     <>
-      {/* Gallery Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Gallery Masonry Grid */}
+      <Masonry
+        breakpointCols={breakpointColumns}
+        className="flex -ml-4 w-auto"
+        columnClassName="pl-4 bg-clip-padding"
+      >
         {photos.map((photo, index) => (
           <div
             key={index}
-            className="relative aspect-video overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+            className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group mb-4"
             onClick={() => openLightbox(photo, index)}
           >
             <Image
               src={photo.src}
               alt={photo.alt}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
             />
             {/* Overlay on hover */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -79,7 +91,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
             </div>
           </div>
         ))}
-      </div>
+      </Masonry>
 
       {/* Lightbox Modal */}
       {selectedPhoto && (

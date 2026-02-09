@@ -21,6 +21,7 @@ class Event(Base):
     description = Column(Text, nullable=True)
     ensemble_name = Column(String(255), nullable=True)  # e.g., "Ogaro Ensemble"
     event_type = Column(String(100), nullable=True)  # e.g., "concert", "workshop", "children's concert"
+    photo_url = Column(String(500), nullable=True)  # e.g., "/images/performances/performance-01.webp"
 
     # Status
     is_past = Column(Boolean, default=False, index=True)
