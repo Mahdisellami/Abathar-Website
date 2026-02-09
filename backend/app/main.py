@@ -36,6 +36,9 @@ async def startup_event():
     import os
     from .models.video import Video
     from .models.playlist import Playlist
+    from .models.event import Event
+    from .models.bio import Bio
+    from .models.ensemble import Ensemble
     from .database import SessionLocal
 
     create_tables()
@@ -43,13 +46,16 @@ async def startup_event():
 
     # Check if FORCE_RESEED environment variable is set
     if os.getenv("FORCE_RESEED", "false").lower() == "true":
-        print("🔄 FORCE_RESEED detected - clearing existing data...")
+        print("🔄 FORCE_RESEED detected - clearing ALL existing data...")
         db = SessionLocal()
         try:
             video_count = db.query(Video).delete()
             playlist_count = db.query(Playlist).delete()
+            event_count = db.query(Event).delete()
+            bio_count = db.query(Bio).delete()
+            ensemble_count = db.query(Ensemble).delete()
             db.commit()
-            print(f"✓ Cleared {video_count} videos and {playlist_count} playlists")
+            print(f"✓ Cleared {video_count} videos, {playlist_count} playlists, {event_count} events, {bio_count} bios, {ensemble_count} ensembles")
         except Exception as e:
             print(f"Warning: Error clearing data: {e}")
             db.rollback()
