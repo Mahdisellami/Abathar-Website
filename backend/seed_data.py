@@ -608,8 +608,6 @@ def seed_videos(db):
         }
     ]
 
-    for video_data in videos_data:    ]
-
     for video_data in videos_data:
         video = Video(**video_data)
         db.add(video)
