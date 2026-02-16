@@ -68,8 +68,8 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-fade-in">
-              <span className="font-serif">Abathar Kmash</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-script text-white mb-2 animate-fade-in" style={{ fontFamily: 'var(--font-great-vibes)' }}>
+              Abathar Kmash
             </h1>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-amiri font-bold text-white mb-8 animate-fade-in" style={{ fontFamily: 'var(--font-amiri)' }}>
               أباذر قماش
