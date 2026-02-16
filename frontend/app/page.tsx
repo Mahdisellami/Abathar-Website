@@ -49,7 +49,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-32">
+      <section className="relative overflow-hidden h-[70vh] md:h-[80vh] lg:h-[90vh] min-h-[600px]">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -57,36 +57,39 @@ export default function HomePage() {
             alt="Abathar Kmash performing with Ogaro Ensemble"
             fill
             priority
-            className="object-cover"
-            quality={90}
+            className="object-cover object-center"
+            quality={95}
           />
         </div>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/95 via-secondary-50/95 to-accent-50/90 dark:from-gray-900/95 dark:via-gray-800/95 dark:to-gray-900/90"></div>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 dark:text-white mb-6 animate-fade-in">
-              Welcome to My Musical World
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-fade-in">
+              <span className="font-serif">Abathar Kmash</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-4 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-amiri font-bold text-white mb-8 animate-fade-in" style={{ fontFamily: 'var(--font-amiri)' }}>
+              أباذر قماش
+            </h2>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 max-w-4xl mx-auto font-light">
               Oud Player | Music Pedagogue | Composer | Transcultural Musician
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10 font-light">
               Bridging Eastern and Western musical traditions through the oud, cello, and intercultural collaboration.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/bio"
-                className="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-white hover:bg-gray-100 text-gray-900 font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl"
               >
                 View Biography
               </Link>
               <Link
                 href="/events"
-                className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-lg border border-gray-300 dark:border-gray-600 transition-colors"
+                className="px-8 py-3 bg-transparent hover:bg-white/10 text-white font-medium rounded-lg border-2 border-white transition-colors"
               >
                 Upcoming Events
               </Link>
