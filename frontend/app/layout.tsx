@@ -9,13 +9,14 @@ import '@/styles/globals.css';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
+  display: 'optional',
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
-  display: 'swap',
+  display: 'optional',
 });
 
 const amiri = Amiri({
@@ -23,6 +24,7 @@ const amiri = Amiri({
   weight: ['400', '700'],
   variable: '--font-amiri',
   display: 'swap',
+  preload: true,
 });
 
 const greatVibes = Great_Vibes({
@@ -30,6 +32,7 @@ const greatVibes = Great_Vibes({
   weight: '400',
   variable: '--font-great-vibes',
   display: 'swap',
+  preload: true,
 });
 
 // Force dynamic rendering for all pages

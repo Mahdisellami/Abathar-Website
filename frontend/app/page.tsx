@@ -58,7 +58,9 @@ export default function HomePage() {
             fill
             priority
             className="object-cover object-center"
-            quality={95}
+            quality={90}
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRh4AAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
           />
         </div>
 
@@ -111,6 +113,8 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                   quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRh4AAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
                 />
               </div>
             </div>
