@@ -16,10 +16,13 @@
 
 ### Medium Priority
 
-- [ ] Performance optimization
-  - Image lazy loading optimization
-  - Font loading optimization
-  - Code splitting review
+- [x] **Performance optimization** (Completed 2026-02-19)
+  - ✅ Font preloading for critical fonts (Great Vibes, Amiri, Inter)
+  - ✅ Optimized font-display strategy (optional for non-critical fonts)
+  - ✅ Image blur placeholders for hero and about images
+  - ✅ Reduced hero image quality (95 → 90)
+  - Target: Improve Speed Insights score from 76 to 85-90+
+- [ ] Code splitting review
 
 ### Low Priority
 
