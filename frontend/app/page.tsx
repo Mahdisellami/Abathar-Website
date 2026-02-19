@@ -58,7 +58,8 @@ export default function HomePage() {
             fill
             priority
             className="object-cover object-center"
-            quality={90}
+            quality={85}
+            sizes="100vw"
             placeholder="blur"
             blurDataURL="data:image/webp;base64,UklGRh4AAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
           />
@@ -69,11 +70,11 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-script text-white mb-2 animate-fade-in" style={{ fontFamily: 'var(--font-great-vibes)' }}>
+          <div className="text-center" style={{ minHeight: '400px' }}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-script text-white mb-2 animate-fade-in" style={{ fontFamily: 'var(--font-great-vibes)', minHeight: '4rem' }}>
               Abathar Kmash
             </h1>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-amiri font-bold text-white mb-8 animate-fade-in" style={{ fontFamily: 'var(--font-amiri)' }}>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-amiri font-bold text-white mb-8 animate-fade-in" style={{ fontFamily: 'var(--font-amiri)', minHeight: '3.5rem' }}>
               أباذر قماش
             </h2>
             <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 max-w-4xl mx-auto font-light">
@@ -112,7 +113,8 @@ export default function HomePage() {
                   alt="Abathar Kmash performing on oud"
                   fill
                   className="object-cover"
-                  quality={85}
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   placeholder="blur"
                   blurDataURL="data:image/webp;base64,UklGRh4AAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
                 />

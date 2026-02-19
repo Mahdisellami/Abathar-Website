@@ -11,28 +11,32 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'optional',
   preload: true,
+  adjustFontFallback: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'optional',
+  adjustFontFallback: true,
 });
 
 const amiri = Amiri({
   subsets: ['arabic', 'latin'],
   weight: ['400', '700'],
   variable: '--font-amiri',
-  display: 'swap',
+  display: 'optional',
   preload: true,
+  adjustFontFallback: true,
 });
 
 const greatVibes = Great_Vibes({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-great-vibes',
-  display: 'swap',
+  display: 'optional',
   preload: true,
+  adjustFontFallback: true,
 });
 
 // Force dynamic rendering for all pages
