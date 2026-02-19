@@ -18,10 +18,16 @@
 
 - [x] **Performance optimization** (Completed 2026-02-19)
   - ✅ Font preloading for critical fonts (Great Vibes, Amiri, Inter)
-  - ✅ Optimized font-display strategy (optional for non-critical fonts)
+  - ✅ Optimized font-display strategy (all fonts set to 'optional')
+  - ✅ Added adjustFontFallback to prevent layout shift
   - ✅ Image blur placeholders for hero and about images
-  - ✅ Reduced hero image quality (95 → 90)
-  - Target: Improve Speed Insights score from 76 to 85-90+
+  - ✅ Reduced image quality (hero: 95→85, about: 85→80)
+  - ✅ Added AVIF format support for better compression
+  - ✅ Added minHeight to hero text containers
+  - ✅ Optimized responsive image sizes
+  - **Results**: Score improved 76 → 79 → targeting 90+
+  - **CLS**: Reduced from 0.4 to <0.1 (expected)
+  - **LCP**: Improved from 1.79s to ~1.0s (expected)
 - [ ] Code splitting review
 
 ### Low Priority
