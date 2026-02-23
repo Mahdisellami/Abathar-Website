@@ -374,7 +374,8 @@ Changes: _________
 
 - Backend: https://abathar-api.onrender.com/health
 - Backend Docs: https://abathar-api.onrender.com/docs
-- Frontend: https://abathar-website.vercel.app
+- Frontend: https://abathar-kmash.de
+- Frontend (Legacy): https://abathar-website.vercel.app
 
 ### Quick Production Test
 

@@ -4,7 +4,8 @@ Modern full-stack website for Abathar Kmash, a professional oud player, music pe
 
 ## Live Demo
 
-**Frontend**: https://abathar-website-mj1bdvkyn-bahtas-projects.vercel.app/ (configuring...)
+**Frontend**: https://abathar-kmash.de (migrated from Vercel)
+**Legacy URL**: https://abathar-website.vercel.app (still active)
 **Backend API**: https://abathar-api.onrender.com
 **API Docs**: https://abathar-api.onrender.com/docs
 

@@ -37,15 +37,18 @@
 - [ ] Add environment variable: `NEXT_PUBLIC_API_URL`
 - [ ] Deploy and wait for completion
 - [ ] Test: Visit your Vercel URL
+- [ ] Add custom domain (see Step 6 for details)
 
-**Frontend URL**: `https://________________.vercel.app`
+**Frontend URL**: `https://abathar-kmash.de`
+**Legacy URL**: `https://abathar-website.vercel.app`
 
 ---
 
 ## ☐ Step 4: Update CORS
-- [ ] Go to Render dashboard
-- [ ] Update `ALLOWED_ORIGINS` with Vercel URL
-- [ ] Save and redeploy
+- [x] Go to Render dashboard
+- [x] Update `ALLOWED_ORIGINS` with custom domain
+  - Current value: `https://abathar-kmash.de,http://localhost:3000`
+- [x] Save and redeploy
 
 ---
 
@@ -63,9 +66,12 @@
 
 ---
 
-## ☐ Step 6: Optional Improvements
-- [ ] Custom domain (Google Domains ~$12/year)
+## ☐ Step 6: Custom Domain & Optional Improvements
+- [x] Custom domain: abathar-kmash.de
   - Add to Vercel: Project Settings → Domains
+  - Configure DNS records (A or CNAME)
+  - Wait for DNS propagation (up to 48 hours)
+  - Verify SSL certificate is active
 - [ ] Keep Render awake: cron-job.org ping every 14 min
 - [ ] Add Google Analytics
 - [ ] Set up error monitoring (Sentry free tier)
