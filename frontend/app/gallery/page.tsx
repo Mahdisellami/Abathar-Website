@@ -29,6 +29,29 @@ export default function GalleryPage() {
     { src: '/images/profile-abathar.webp', alt: 'Abathar Kmash Portrait', caption: 'Abathar Kmash - Photo: Lena Semmelroggen', category: 'portraits' },
     { src: '/images/ensemble-group.webp', alt: 'Ogaro Ensemble Group Photo', caption: 'Ogaro Ensemble Group Photo', category: 'portraits' },
     { src: '/images/about-performing.webp', alt: 'Abathar Performing', caption: 'Abathar Kmash performing on oud', category: 'portraits' },
+    // Stephane Le Breton portraits from Munich recording session
+    { src: '/images/stephane-le-breton/slb-portrait-01.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-02.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-03.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-04.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-05.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-06.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-07.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-08.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-09.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-10.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-11.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-12.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-13.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-14.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-15.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-16.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-17.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-18.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-19.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-20.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-21.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
+    { src: '/images/stephane-le-breton/slb-portrait-22.webp', alt: 'Abathar Kmash Portrait', caption: 'Met in Munich Recording Session - Photo: Stephane Le Breton', category: 'portraits' },
   ];
 
   const allPhotos = [...portraitPhotos, ...performancePhotos];
@@ -132,6 +155,17 @@ export default function GalleryPage() {
                 </div>
                 <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
                   Sound of Munich Now 2021
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  Stephane Le Breton
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  SLB_Fotografie
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                  Met in Munich Recording Session 2026
                 </p>
               </div>
             </div>
