@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display, Amiri, Great_Vibes } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -70,7 +69,6 @@ export default function RootLayout({
           </main>
           <Footer />
         </ThemeProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
