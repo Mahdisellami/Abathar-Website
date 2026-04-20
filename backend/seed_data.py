@@ -225,16 +225,6 @@ def seed_events(db):
             is_past=False
         ),
         Event(
-            title="Ogaro Ensemble",
-            date=date(2026, 8, 1),
-            time="",
-            venue="",
-            location="Graz",
-            ensemble_name="Ogaro Ensemble",
-            event_type="concert",
-            is_past=False
-        ),
-        Event(
             title="Met in Munich",
             date=date(2026, 10, 17),
             time="",
