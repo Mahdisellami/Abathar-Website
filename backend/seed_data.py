@@ -214,6 +214,39 @@ def seed_events(db):
             event_type="concert",
             is_past=False
         ),
+        Event(
+            title="Eröffnungsfeier für Superar München",
+            date=date(2026, 5, 18),
+            time="17:00",
+            venue="Careteria, Goethestraße 24",
+            location="München",
+            description="Konzert für Oud kinder bei Superar",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Embryo feat. Abathar Kmash & Fabiana Striffler",
+            date=date(2026, 5, 23),
+            time="21:00",
+            venue="Kammerspiele München",
+            location="München",
+            description="Untwelving Festival",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Alfulimux, der Wüstenfuchs",
+            date=date(2026, 7, 26),
+            time="14:00",
+            venue="",
+            location="Rheingau-Taunus-Kreis",
+            description="Rheingau Musikfestival",
+            ensemble_name=None,
+            event_type="children's concert",
+            is_past=False
+        ),
     ]
 
     db.add_all(events)
