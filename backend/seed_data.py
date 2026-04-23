@@ -204,6 +204,17 @@ def seed_events(db):
             is_past=False
         ),
         Event(
+            title="One Sky, Many Dreams",
+            date=date(2026, 4, 26),
+            time="11:00",
+            venue="Barbarossasaal - Main-Kinzig-Forum",
+            location="Gelnhausen",
+            description=None,
+            ensemble_name="Qantara Trio",
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
             title="Ogaro Ensemble with Oriental Dance",
             date=date(2026, 5, 17),
             time="20:00",

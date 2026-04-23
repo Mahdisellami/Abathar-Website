@@ -54,6 +54,7 @@ He has performed at prestigious venues including Gasteig HP8, Konzerthaus Berlin
         ('Alfulimux, der Wüstenfuchs', '2026-03-16', '10:00', 'Gasteig HP8', 'München', "Children's concert", None, "children's concert", False),
         ('Alfulimux, der Wüstenfuchs', '2026-03-22', '15:00', 'Schwörsaal im Waaghaus', 'Ravensburg', "Children's concert", None, "children's concert", False),
         ('Alfulimux, der Wüstenfuchs', '2026-03-23', '10:00', 'Schwörsaal im Waaghaus', 'Ravensburg', "Children's concert", None, "children's concert", False),
+        ('One Sky, Many Dreams', '2026-04-26', '11:00', 'Barbarossasaal - Main-Kinzig-Forum', 'Gelnhausen', None, 'Qantara Trio', 'concert', False),
         ('Ogaro Ensemble with Oriental Dance', '2026-05-17', '20:00', 'Gasteig HP8', 'München', 'Ogaro Ensemble with oriental dance performance', 'Ogaro Ensemble', 'concert', False),
         ('Eröffnungsfeier für Superar München', '2026-05-18', '17:00', 'Careteria, Goethestraße 24', 'München', 'Konzert für Oud kinder bei Superar', None, 'concert', False),
         ('Embryo feat. Abathar Kmash & Fabiana Striffler', '2026-05-23', '21:00', 'Kammerspiele München', 'München', 'Untwelving Festival', None, 'concert', False),
