@@ -54,9 +54,7 @@ He has performed at prestigious venues including Gasteig HP8, Konzerthaus Berlin
         ('Alfulimux, der Wüstenfuchs', '2026-03-16', '10:00', 'Gasteig HP8', 'München', "Children's concert", None, "children's concert", False),
         ('Alfulimux, der Wüstenfuchs', '2026-03-22', '15:00', 'Schwörsaal im Waaghaus', 'Ravensburg', "Children's concert", None, "children's concert", False),
         ('Alfulimux, der Wüstenfuchs', '2026-03-23', '10:00', 'Schwörsaal im Waaghaus', 'Ravensburg', "Children's concert", None, "children's concert", False),
-        ('Met in Munich', '2026-04-10', None, 'Tresor Vinum', 'München', None, 'Met in Munich', 'concert', False),
         ('Ogaro Ensemble with Oriental Dance', '2026-05-17', '20:00', 'Gasteig HP8', 'München', 'Ogaro Ensemble with oriental dance performance', 'Ogaro Ensemble', 'concert', False),
-        ('Met in Munich', '2026-10-17', None, '', 'Kitzingen', None, 'Met in Munich', 'concert', False),
     ]
 
     for event in events:

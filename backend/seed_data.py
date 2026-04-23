@@ -204,16 +204,6 @@ def seed_events(db):
             is_past=False
         ),
         Event(
-            title="Met in Munich",
-            date=date(2026, 4, 10),
-            time="",
-            venue="Tresor Vinum",
-            location="München",
-            ensemble_name="Met in Munich",
-            event_type="concert",
-            is_past=False
-        ),
-        Event(
             title="Ogaro Ensemble with Oriental Dance",
             date=date(2026, 5, 17),
             time="20:00",
@@ -221,16 +211,6 @@ def seed_events(db):
             location="München",
             description="Ogaro Ensemble with oriental dance performance",
             ensemble_name="Ogaro Ensemble",
-            event_type="concert",
-            is_past=False
-        ),
-        Event(
-            title="Met in Munich",
-            date=date(2026, 10, 17),
-            time="",
-            venue="",
-            location="Kitzingen",
-            ensemble_name="Met in Munich",
             event_type="concert",
             is_past=False
         ),
