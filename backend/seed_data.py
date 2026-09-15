@@ -258,6 +258,17 @@ def seed_events(db):
             event_type="children's concert",
             is_past=False
         ),
+        Event(
+            title="GEMEINSAM – Transkulturelles Musikprojekt",
+            date=date(2026, 9, 10),
+            time="16:00",
+            venue="",
+            location="Gutshaus Bagow",
+            description="Klassische Kammermusik und arabische Lieder mit Streichern, Gesang, Oud und Percussion.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
     ]
 
     db.add_all(events)
