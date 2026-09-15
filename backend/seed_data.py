@@ -269,6 +269,105 @@ def seed_events(db):
             event_type="concert",
             is_past=False
         ),
+        Event(
+            title="Qantara Trio – Sonne, Mond und Sterne",
+            date=date(2026, 9, 11),
+            time="10:00",
+            venue="Ritterakademie am Dom zu Brandenburg",
+            location="Brandenburg",
+            description="Kitakonzert in der Aula der Ritterakademie am Dom zu Brandenburg",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="GEMEINSAM – Abschlussfest: Ein Fest der Vielfalt",
+            date=date(2026, 9, 12),
+            time="15:00",
+            venue="Interkulturelles Zentrum, Gotthardtkirchplatz 10",
+            location="Brandenburg",
+            description="Musik aus Iran, Senegal, dem arabischen Raum und Deutschland sowie Werke von Antonín Dvořák und gemeinsames Singen",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Alfulimux – kinder Konzert im Rahmen der Interkulturellen Tage",
+            date=date(2026, 9, 27),
+            time="15:00",
+            venue="",
+            location="Schloss Achberg",
+            description="Alfulimux – kinder Konzert im Rahmen der Interkulturellen Tage",
+            ensemble_name=None,
+            event_type="children's concert",
+            is_past=False
+        ),
+        Event(
+            title="Qantara Trio – Sonne, Mond und Sterne",
+            date=date(2026, 10, 7),
+            time="9:00",
+            venue="Kulturraffinerie K714, Monheim am Rhein",
+            location="Monheim am Rhein",
+            description="Musiktheater für Kinder - Vorstellungen: jeweils 9:00, 11:00 und 15:00 Uhr",
+            ensemble_name=None,
+            event_type="children's concert",
+            is_past=False
+        ),
+        Event(
+            title="OMoPO – One Mankind One Planet Orchestra",
+            date=date(2026, 10, 10),
+            time="20:15",
+            venue="Münchner Stadtbibliothek im Motorama",
+            location="München",
+            description="Community Music – Abschlusskonzert. Leitung: Abathar Kmash & Eleanna Pitsikaki",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Ogaro Duo",
+            date=date(2026, 10, 29),
+            time="",
+            venue="",
+            location="Augsburg-Hochzoll",
+            description="Konzert im Rahmen der Kulturtage Hochzoll",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Ogaro Duo",
+            date=date(2026, 10, 29),
+            time="",
+            venue="Moosacher St.-Martins-Platz 2, München",
+            location="München",
+            description="Konzertabend im Pelkovenschlössl",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Superar München – Jahreskonzert 2026",
+            date=date(2026, 11, 26),
+            time="",
+            venue="Isarphilharmonie, Gasteig HP8",
+            location="München",
+            description="Superar Chor und Orchester",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="Ogaro Duo – Konzert",
+            date=date(2026, 11, 26),
+            time="",
+            venue="expeRIEMent Kopfbau, München-Riem",
+            location="München-Riem",
+            description="",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
     ]
 
     db.add_all(events)
