@@ -368,6 +368,149 @@ def seed_events(db):
             event_type="concert",
             is_past=False
         ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 10, 17),
+            time="15:00",
+            venue="Öjendorfer Weg 30a, 22119 Hamburg",
+            location="Hamburg",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 10, 30),
+            time="18:00",
+            venue="Münchner Künstlerhaus",
+            location="München",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 10, 31),
+            time="15:00",
+            venue="Münchner Künstlerhaus",
+            location="München",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 11, 21),
+            time="15:00",
+            venue="Stadthalle Rostock",
+            location="Rostock",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 11, 28),
+            time="",
+            venue="Theatersaal Langenhagen",
+            location="Hannover/Langenhagen",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 12, 05),
+            time="",
+            venue="Carl-Zeiss-Saal",
+            location="Erfurt",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 12, 05),
+            time="",
+            venue="Martinushaus",
+            location="Aschaffenburg",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 12, 18),
+            time="20:45",
+            venue="Meistersingerhalle",
+            location="Nürnberg",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2026, 12, 19),
+            time="15:00",
+            venue="Württembergsaal",
+            location="Stuttgart",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2027, 2, 12),
+            time="",
+            venue="Lokschuppen Bielefeld",
+            location="Bielefeld",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2027, 3, 20),
+            time="",
+            venue="Haus der Musik Innsbruck",
+            location="Innsbruck",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2027, 3, 27),
+            time="18:00",
+            venue="Paul Sacher Saal",
+            location="Basel",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
+        Event(
+            title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
+            date=date(2027, 4, 23),
+            time="18:00",
+            venue="Konzerthaus",
+            location="Freiburg im Breisgau",
+            description="Live-Show mit Erzähler, Projektionen und Live-Musik.",
+            ensemble_name=None,
+            event_type="concert",
+            is_past=False
+        ),
     ]
 
     db.add_all(events)
