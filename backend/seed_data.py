@@ -359,7 +359,7 @@ def seed_events(db):
         ),
         Event(
             title="Ogaro Duo – Konzert",
-            date=date(2026, 11, 26),
+            date=date(2026, 11, 27),
             time="",
             venue="expeRIEMent Kopfbau, München-Riem",
             location="München-Riem",
