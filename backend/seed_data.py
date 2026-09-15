@@ -425,7 +425,7 @@ def seed_events(db):
         ),
         Event(
             title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
-            date=date(2026, 12, 05),
+            date=date(2026, 12, 5),
             time="",
             venue="Carl-Zeiss-Saal",
             location="Erfurt",
@@ -436,7 +436,7 @@ def seed_events(db):
         ),
         Event(
             title="ÄGYPTEN – Pyramiden, Pharaonen und das Reich der Götter",
-            date=date(2026, 12, 05),
+            date=date(2026, 12, 5),
             time="",
             venue="Martinushaus",
             location="Aschaffenburg",
